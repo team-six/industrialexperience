@@ -15,8 +15,8 @@ Role.create!([
 
 User.create!([
 	{
-		user_fname: "Paula", 
-		user_lname: "Murray", 
+		user_fname: "lebron", 
+		user_lname: "james", 
 		user_email: "admin@team-six.com",
 		role_id: 1,
 		sign_in_count: 0,
@@ -58,6 +58,15 @@ User.create!([
 		sign_in_count: 0,
 		password: "password",
 		password_confirmation: "password"
+	},
+	{
+		user_fname: "mohammed", 
+		user_lname: "aliyu", 
+		user_email: "maliyu@team-six.com",
+		role_id: 2,
+		sign_in_count: 0,
+		password: "password",
+		password_confirmation: "password"
 	}
 ])
 
@@ -83,10 +92,10 @@ Religion.create!([
 email_index = 1
 
 first_names = ["william","miguel","mason","ethan","logan", "lucas", "owen", "bob","noah","pedro",
-"louis","kendra","stewie","glenn","patricia","mary","sally","jane","megan","sarah"]
+"louis","kendra","stewie","glenn","patricia","mary","sally","jane","megan","sarah","jovan","grace","london","mpho"]
 
 last_names = ["brown","wilson","jackson","davis","white","lopez","miller","jones","walker","nelson",
-"green","quagmire","harris","chiura","banda","titus","marufu","griffin","young", "hill"]
+"green","quagmire","harris","chiura","banda","titus","marufu","griffin","young", "hill","kelly","retief","burges"]
  	
 
 50.times do
@@ -94,7 +103,7 @@ last_names = ["brown","wilson","jackson","davis","white","lopez","miller","jones
 	lname = 1 + rand(last_names.length) -1
 	religion = 1 + rand(7)
 	status = 1 + rand(4)
-	user = 2 + rand(4)
+	user = 2 + rand(5)
 	  		
  	Employee.create! ([{
 		employee_fname: first_names[fname],

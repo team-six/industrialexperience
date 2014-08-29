@@ -24,8 +24,13 @@
 				<div class="row">
 					<div class="header-element" id="search">
 						<span class="adjoined"><i class="fa fa-search"></i></span>
-						<input type="text" placeholder="Search"/>
+						<%= form_tag(employees_path, :method => "get", id: "search-form") do %>
+  						<%= text_field_tag :search, params[:search], placeholder: "Search Employees" %>
+  						<%= submit_tag "Search", :name => nil %>
+  						<% end %>
 					</div><!-- /search -->
+					
+
 				</div>
 
 				<div class="row">		

@@ -7,10 +7,22 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     if signed_in? && current_user.role_id == 2
-      @employees = all_employees.sort { |a,b| a.employee_lname <=> b.employee_lname }
+
+      # Search Results
+      if params[:search]
+        search_query = params[:search]
+        @employees = all_employees.search(params[:search]).sort { |a,b| a.employee_lname <=> b.employee_lname }
+        if(@employees.size  == 0)
+          flash[:notice] = "Cant find employee named " + search_query.to_s.capitalize
+        end
+      else
+        @employees = all_employees.sort { |a,b| a.employee_lname <=> b.employee_lname }
+      end
     else
       restricted_access
     end
+
+    
   end
 
   # GET /employees/1
@@ -37,8 +49,13 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def employee_import
+  # delete this if not needed
+  #def employee_import
 
+  #end
+
+  def search
+    @employee = Employee.search(params[:search])
   end
 
   # GET /employees/new
