@@ -1,0 +1,335 @@
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Gudea:400,700);
+html{ width: 100%;  }
+body{
+  background: #ececec; 
+  width: 100%;
+  font-family: 'Maven Pro', sans-serif !important; 
+  font-size: 16px;
+  font-weight: 400; 
+  color: #555555; 
+  position: relative; 
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+h1,h2,h3,h4,h5,h6
+a,p,div,table,span,ul,li,canvas,pre{
+  font-family: 'Maven Pro', sans-serif !important; 
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+#traffic{
+  height: 400px;
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float: left;
+ 
+
+  #traffic-graph{
+    position: relative;
+    z-index: 2;
+  }
+}
+
+h1{ font-size: 3.5em; }
+h2{ font-size: 3em; }
+h3{ font-size: 2em; margin-bottom: 10px; }
+h4{ font-size: 1.5em;}
+
+a{ text-decoration: none; color: #373737; }
+a:visited{
+  color: #373737;
+}
+
+strong{
+  font-weight: bold;
+}
+
+span{
+  padding: 0;
+  margin: 0;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+table{
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-size: 0.85em !important;
+
+  thead{
+    background: #2c3e50;
+    border: none;
+    color: #fff;
+    text-align: center;
+
+    th{
+      padding: 10px;
+      text-align: left;
+    }
+  }
+
+  tr{
+    border: none;
+    td{
+      padding: 8px;
+    }
+  }
+
+  tr:nth-child(even){
+    background: #e7e7e7;  
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.chart-legend{
+  li{
+    float: left;;
+    padding: 10px;
+    color: #fff;
+    margin-right: 10px;
+    border-radius: 2px;
+  }
+}
+
+.flash{
+  float: left;
+  text-align: center;
+  margin-bottom: 0px;
+  position: absolute;
+  width: 40%;
+  margin-left: 32%;
+  margin-top: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 2px;
+  color: #fff;
+  z-index: 10;
+}
+
+.session-flash{
+  float: left;
+  text-align: center;
+  margin-bottom: 0px;
+  position: absolute;
+  width: 36%;
+  margin-left: 32%;
+  margin-top: -40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 2px;
+  color: #fff;
+  z-index: 10;
+}
+
+.alert-error{
+  color: #fff;
+  background: #c0392b;
+  margin-bottom: 10px;
+}
+
+.alert-success{
+  color: #fff;
+  background: #27ae60;
+  margin-bottom: 10px;
+}
+
+.field_with_errors {
+  padding: 2px;
+  display: table;
+  border-right: 5px solid #c0392b;
+
+  label{
+    color: #c0392b;
+  }
+}
+
+#error_explanation {
+  width: 100%;
+  border: 0px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  float: left;
+  border-radius: 2px;
+  
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    padding-top:  10px;
+    padding-bottom:  10px;
+    margin-bottom: 0px;
+    background-color: #c0392b;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: disc;
+  }
+
+  ul{ 
+    margin-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+   }
+
+}
+
+input[type="text"], input[type="password"], textarea{
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+.general-form{
+  label{
+
+  }
+
+  li{
+    margin-bottom: 15px;
+  }
+
+}
+
+#forgot-password{
+  margin-top: 10px;
+}
+
+.container{
+  margin-top: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 2px;
+  float: left;
+
+  input[type="text"], input[type="password"], textarea{
+    width: 450px;
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+  header.main-page-header{
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    float: left;
+  }
+}
+
+span.import-button{
+  background: #1abc9c;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 0.85em;
+  color: #fff;
+  border-radius: 2px;
+  margin-left: 20px;
+
+  a{
+    color: #fff;
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+div.performance-legend{
+  padding: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background: #FDE3A7;
+  float: left;
+  border: 1px solid #F4B350;
+  font-size: 0.8em;
+}
+
+.csv-import{
+  background: #F7E4C6;
+  float: left;
+  width: 100%;
+  padding: 15px;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.nano-content { padding: 10px; }
+.nano-pane   { background: #888; }
+.nano-slider { background: #111; }
+
+/*==========================================
+  TEAM-SIX CUSTOM GRID
+  ==========================================*/
+.row { width: 100%; max-width: 1140px; min-width: 320px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+.row .row { min-width: 0; padding-left: 0; padding-right: 0; }
+
+/* To fix the grid into a different size, set max-width to your desired width */
+.column, .columns { margin-left: 2.12766% !important; float: left; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.column:first-child, .columns:first-child, .alpha { margin-left: 0 !important; }
+
+.column.omega, .columns.omega { float: right; }
+
+/* Column Classes */
+.row .one.column { width: 6.38298%; }
+.row .one.columns { width: 6.38298%; }
+.row .two.columns { width: 14.89362%; }
+.row .three.columns { width: 23.40426%; }
+.row .four.columns { width: 31.91489%; }
+.row .five.columns { width: 40.42553%; }
+.row .six.columns { width: 48.93617%; }
+.row .seven.columns { width: 57.44681%; }
+.row .eight.columns { width: 65.95745%; }
+.row .nine.columns { width: 74.46809%; }
+.row .ten.columns { width: 82.97872%; }
+.row .eleven.columns { width: 91.48936%; }
+.row .twelve.columns { width: 100%; }
+
+@media only screen 
+and (min-width : 800px)
+and (max-width : 1140px) {
+  body{
+    font-size: 0.9em;
+  }
+}
+
+@media only screen 
+and (min-width : 400px)
+and (max-width : 799px) {
+  body{
+    font-size: 0.85em;
+  }
+}

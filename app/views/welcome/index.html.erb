@@ -1,0 +1,13 @@
+<section class="row container" id="welcome-section">
+	<!-- Error Message to the User -->
+	<% flash.each do |key, value| %>
+	  <div class="flash alert alert-<%= key %>"><%= h(value) %></div>
+	<% end %>
+	<header>Workforce Managment System</header>
+
+<p>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae imperdiet felis. Pellentesque eleifend pretium interdum. Sed vel feugiat neque. Nullam ac diam non tellus pellentesque porttitor. Sed dignissim dolor ipsum, et scelerisque justo tristique id. Sed pulvinar ante quis ipsum iaculis posuere. Cras quis metus risus. Aliquam sed cursus est, eget interdum lorem. Morbi vitae ipsum sit amet tortor suscipit viverra. Fusce tincidunt nisi tortor, a dignissim tortor convallis non. Duis tempus elementum lacus vel commodo. Vestibulum vel tempor diam. In ligula erat, tincidunt auctor felis ac, luctus dapibus est. Donec faucibus varius tortor at aliquet. Donec ligula nisi, facilisis nec risus non, aliquet accumsan leo.
+</p>
+	
+	<%= link_to "Enter The System", signin_path %>
+</section><!-- /welcome_section -->

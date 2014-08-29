@@ -1,0 +1,102 @@
+#employee-details{
+	margin-bottom: 20px;
+
+	a{ color: #373737; }
+
+	table{
+
+		th{
+			background: #2c3e50;
+			color: #fff;
+		}
+		tr{
+			background: #fff;
+			td:first-child{
+				width: 12%;
+			}
+		}
+	}
+
+	h5{
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+}
+
+#employee-performance{
+	table{
+		text-align: center;
+		th{
+			text-align: center;
+			text-transform: uppercase;
+			background: #34495e;
+			border-right: 1px solid #2c3e50;
+		}
+	}
+	#performance-values{
+		td{
+			font-size: 1.6em;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			background: #2c3e50;
+			color: #fff;
+			border-right: 1px solid #34495e;
+		}
+	}
+
+	#performance-comparison{
+		td{
+			background: #34495e;
+			color: #ccc;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-right: 1px solid #2c3e50;
+		}
+	}
+}
+
+#employee-call-data{
+	width: 100%;
+	float: left;
+	padding-top: 15px;
+
+	h6{
+		width: 100%;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-transform: uppercase;
+	}
+}
+
+#employee-call-count{
+	float: left;
+	background: #16a085;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	color: #fff;
+	width: 200px;
+	text-align: center;
+	border-radius: 2px;
+
+	h6{
+		width: 100%;
+		background: #1abc9c;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-transform: uppercase;
+	}
+
+	p{
+		padding-top: 22px;
+		padding-bottom: 22px;
+		color: #fff;
+		font-size: 2em;
+	}
+}
+
+header.emp-performance-header{
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}

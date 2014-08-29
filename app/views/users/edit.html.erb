@@ -1,0 +1,33 @@
+<div class="row">
+	<section class="twelve columns container">	
+	<header>
+		Editing <%= @user.full_name %>
+		<span class="import-button">Change Password</span>
+	</header>
+	<%= form_for(@user) do |f| %>
+	  <% if @user.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	      <ul>
+	      <% @user.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <ul class="general-form" id="user-form-fields">
+	    <li><%= f.text_field :user_fname, :placeholder => "First Name" %></li>
+	    <li><%= f.text_field :user_lname, :placeholder => "Last Name" %></li>
+	    <li><%= f.text_field :user_email, :placeholder => "Email Address" %></li>
+	    
+	  </ul><!-- /user-form-fields -->
+
+	  <div class="actions">
+	    <%= f.submit "Update Details" %>
+	  </div>
+	<% end %>
+	</section>
+</div>
+

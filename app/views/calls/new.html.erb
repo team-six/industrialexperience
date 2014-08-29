@@ -1,0 +1,11 @@
+<section  class="twelve columns container">
+	<header>Create New Call<span class="import-button"><strong>Import</strong> CSV</span></header>
+	<div class = "csv-import">
+	<h3>Import a <strong>CSV</strong> File </h3>
+	<%= form_tag import_calls_path, multipart: true do %>
+		<%= file_field_tag :file %>
+		<%= submit_tag "Import CSV" %>
+	<% end %>
+	</div>
+
+</section>

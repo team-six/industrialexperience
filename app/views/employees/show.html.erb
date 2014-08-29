@@ -1,0 +1,111 @@
+<div class="row">
+<section  class="twelve columns container">
+  <% flash.each do |key, value| %>
+	<div class="flash alert alert-<%= key %>"><%= h(value) %></div>
+  <% end %>
+  <header class="main-page-header">
+    <%= @employee.full_name %>
+    <span class="import-button"><%= link_to "Edit", edit_employee_path(@employee) %></span>
+  </header>
+
+  <div id="employee-details">
+    <h5>Personal Details</h5>
+    <table>
+      <thead>
+        <th width="25%">Email</th>
+        <th width="25%">Contact Number</th>
+        <th width="25%">Started Work</th>
+        <th width="25%">Current Status</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td><a href="mailto:<%= @employee.employee_email %>" title="Send E-mail to <%= @employee.full_name %>">
+          <%= @employee.employee_email %></a></td>
+        <td><%= @employee.employee_contact_num %></td>
+        <td><%= @employee.employee_started %></td>
+        <td>Fix</td>
+      </tr>
+      </tbody>
+    </table>
+
+    
+  </div><!-- Employee Details -->
+</section>
+</div>
+
+<div class="row">
+  <section id="employee-performance" class="twelve columns container">
+    <header class="emp-performance-header">
+      Performance
+    </header>
+
+    <div class="performance-legend">
+      <strong>Terms:</strong> <strong>LT</strong> = Lower Than, <strong>HT</strong> = Higher Than, <strong>Avg</strong> = Average
+    </div>
+
+    <table>
+      <thead>
+        <th>Total Calls Handled</th>
+        <th>Success Rate</th>
+        <th>Avg Calls / Day</th>
+        <th>Avg Time / Call</th>
+      </thead>
+      <% employee_performance(@employee) %>
+      <tr id="performance-values">
+        <td><%= @call_count %></td>
+        <td><%= @success_percentage %>%</td>
+        <td><%= @calls_per_day %></td>
+        <td>~<%= @average_call_duration %></td>
+      </tr>
+      
+
+      <tr id="performance-comparison">
+        <td><%= employee_call_count_comparison(@employee) %></td>
+        <td><%= employee_success_comparison(@employee) %></td>
+        <td><%= employee_avg_calls_comparison(@employee) %></td>
+        <td><%= employee_avg_time_comparison(@employee) %></td>
+      </tr>
+
+    </table>
+
+  </section>
+</div>
+
+
+<div class="row">
+<section class="twelve columns container" id="employee-call-data">
+    <header class="emp-performance-header">
+       Visual Aids
+    </header>
+    <div id="mycharts">
+      <canvas id="chart-bookings-per-month" width="300" height="100"></canvas>
+    </div>
+</section><!-- /Employee Call Data -->
+</div>
+
+<div class="row">
+<section class="twelve columns container" id="employee-call-data">
+    <header class="emp-performance-header">
+       Call History
+    </header>
+    <table>
+    <thead>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Call Wait Period (Secs)</th>
+      <th>Call Duration (Mins)</th>
+    </thead>
+  <% @calls_report.each do |call| %>
+    <tr>
+      <td><%= call.call_startTime.strftime("%d %b,%Y") %></td>
+      <td><%= call.call_startTime.strftime("%I:%M%p") %></td>
+      <td><%= call.call_endTime.strftime("%I:%M%p") %></td>
+      <td><%= call.call_wait_period %>  (approx. <%= convert_to_mins(call.call_wait_period) +1 %>mins)</td>
+      <td><%= convert_to_mins(call.call_duration) %></td>
+    </tr>
+  <% end %>
+  </table>
+</section><!-- /Employee Call Data -->
+</div>
+

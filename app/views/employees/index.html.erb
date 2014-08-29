@@ -1,0 +1,35 @@
+<section  class="twelve columns container">
+
+<header class="main-page-header">All Employees ( <%= current_user_employees_count %> )
+  <span class="import-button"><%= link_to "Add New", new_employee_path %></span>
+</header>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee Id</th>
+      <th>Full Name</th>
+      <th>Commenced Work</th>
+      <th>Contact Number</th>
+      <th>Email Address</th>
+      <th>Current Status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td>DD_<%= employee.id %></td>
+        <td><%= link_to employee.full_name_rev, employee %></td>
+        <td><%= employee.employee_started %></td>
+        <td><%= employee.employee_contact_num %></td>
+        <td><%= employee.employee_email %></td>
+        <td>Fix</td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</section>

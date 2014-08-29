@@ -1,0 +1,33 @@
+<!-- Message to the User -->
+<% flash.each do |key, value| %>
+  <div class="session-flash alert alert-<%= key %>"><%= h(value) %></div>
+<% end %>
+
+<section id="login" class="row">
+<!-- Group Logo -->
+<header>
+	<%= link_to image_tag("favicon.png"), root_path, :title => "TEAMSIX Home" %>
+	<p><strong>Sign In</strong></p>
+</header>
+
+<!-- Form for user login -->
+<%= form_for(:session, url: session_index_path) do |f| %>
+
+  <ul id="login-fields">   
+    <li>
+      <span class="adjoined"><i class="fa fa-user"></i></span>
+      <%= f.text_field :email, :placeholder => "Email Address" %>
+    </li>
+
+    <li>
+      <span class="adjoined"><i class="fa fa-unlock"></i></span>
+      <%= f.password_field :password, :placeholder => "Password" %> <br />
+    </li> 
+  </ul>
+
+  <%= f.submit "Login" %>
+<% end %>
+<!-- Link to retrieve lost password -->
+<p id="forgot-password"><a href="#">Forgot Password</a> | Contact Administrator | Request Account</p>
+
+</section><!-- /user-login -->

@@ -1,0 +1,74 @@
+<% if signed_in?  %>
+	<div id="timedate">
+		<div id="clock"></div><!-- /clock -->
+		<div id="date"><%= Time.now.strftime("%a, %e %B %Y") %></div><!-- Date -->
+	</div>	
+<% end %>
+
+<section id="main-navigation">	
+	<nav>
+		<ul>
+			<% if current_user.role_id == 2 %>
+
+				<li class="top-level"><span><i class="fa fa-home fa-fw"></i> Dashboard</span>
+					<ul class="second-level">
+						<%= nav_link("Home", dashboard_index_path) %>
+					</ul>
+				</li>
+				<!--
+				<li class="top-level"><span><i class="fa fa-file fa-fw"></i> Reports</span></li>
+				-->
+
+				<li class="top-level"><span><i class="fa fa-users fa-fw"></i> Employees</span>
+					<ul class="second-level">
+						<%= nav_link("New Employee", new_employee_path) %>
+						<%= nav_link("View All", employees_path) %>
+						<%= nav_link("Import Employees", employee_import_path) %>
+					</ul>
+				</li>
+				<li class="top-level"><span><i class="fa fa-phone fa-fw"></i> Calls</span>
+					<ul class="second-level">
+						<%= nav_link("Call Log", calls_path) %>
+					</ul>
+				</li>
+				<!--
+				<li class="top-level"><span><i class="fa fa-calendar fa-fw"></i> Schedule</span></li>
+				<li class="top-level"><span> <i class="fa fa-cog fa-fw"></i> Settings</span>
+					<ul class="second-level">
+						<li>General</li>
+						<li>Targets</li>
+						<li>System</li>
+						<li>About</li>
+					</ul>
+				</li>
+				-->
+
+			<% elsif current_user.role_id == 1 %>
+				<li class="top-level"><span><i class="fa fa-home fa-fw"></i> Dashboard</span>
+					<ul class="second-level">
+						<%= nav_link("Home", administration_path) %>
+					</ul>
+				</li>
+
+				<li class="top-level"><span><i class="fa fa-users fa-fw"></i> Users</span>
+					<ul class="second-level">
+						<li><%= link_to "New User", new_user_path %></li>
+						<li><%= link_to "View All", users_path %></li>
+					</ul>
+				</li>
+				<li class="top-level"><span><i class="fa fa-wrench fa-fw"></i> Configuration</span>
+					<!--
+					<ul class="second-level">
+						<li>New</li>
+						<li>View All</li>
+					</ul>
+					-->
+				</li>
+				<li class="top-level"><span><i class="fa fa-cloud fa-fw"></i> System Details</span>
+					
+				</li>
+
+			<% end %>
+		</ul>
+	</nav>
+</section><!-- main-navigation -->

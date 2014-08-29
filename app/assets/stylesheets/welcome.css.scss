@@ -1,0 +1,69 @@
+/*=========================
+  Main Welcome Screen
+  =========================*/
+
+#welcome-section{
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 100px;
+
+  a{
+    text-decoration: underline;
+  }
+
+  header{
+    float: left;
+    width: 100%;
+    color: #373737;
+    font-weight: 700;
+
+
+    img{
+      float: left;
+      width: 100px;
+      display: none;
+    }
+
+    span{
+      color: #373737;
+      font-size: 4.2em;
+      letter-spacing: -3px;
+      margin-top: 33px;
+      float: right;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  p{
+    padding-top: 0px;
+    color: #373737;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    float: left;
+  }
+
+  .enter-button{
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background:  #1abc9c;
+    border-bottom: 5px solid #16a085;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    text-transform: uppercase;
+    float: left;
+
+    &:hover{
+      opacity: 0.9;
+    }
+
+    &:active{
+      opacity: 0.8;
+    }
+  }
+}

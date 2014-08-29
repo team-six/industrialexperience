@@ -1,0 +1,14 @@
+<section  class="twelve columns container">
+<header class="main-page-header">Import Employees</header>
+<div class="csv-import">
+	<h3>Import a <strong>CSV</strong> File</h3>
+	<%= form_tag import_employees_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= hidden_field :user_id, :value => current_user.id.to_i %>
+	<%= submit_tag "Import CSV" %>
+	<% end %>
+</div><!-- CSV Import -->
+
+
+
+</section>

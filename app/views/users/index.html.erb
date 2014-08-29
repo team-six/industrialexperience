@@ -1,0 +1,32 @@
+<section  class="twelve columns container">
+<header>All System Users
+  <span class="import-button"><%= link_to "Add New", new_user_path %></span>
+</header>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email Address</th>
+      <th>Member Since</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.user_email %></td>
+        <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</section>

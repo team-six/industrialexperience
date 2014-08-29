@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workforce Management System</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => false %>
+  <%= favicon_link_tag 'favicon.png' %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="<%= bodytag_id %>">
+	
+
+	<% if signed_in? %>
+		<% if current_user.role_id == 2 || current_user.role_id == 1 %>
+			<%= render :partial => "layouts/application_header" %>
+			<%= render :partial => "layouts/application_sidebar" %>
+
+			<!-- Message to the User -->
+			<% flash.each do |key, value| %>
+				<div class="flash alert alert-<%= key %>"><%= h(value) %></div>
+			<% end %>
+
+			<section id="content">
+
+				<div class="row">
+					<div class="header-element" id="search">
+						<span class="adjoined"><i class="fa fa-search"></i></span>
+						<input type="text" placeholder="Search"/>
+					</div><!-- /search -->
+				</div>
+
+				<div class="row">		
+					<%= yield %>
+				</div>	
+
+			</section><!-- /content -->		
+		<% end %>
+	<% else %>	
+		<%= yield %>
+	<% end %>
+
+	<!-- Load JS after the page content -->
+	
+	<%= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css", media: "all" %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans", media: "all" %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+
+</body>
+</html>
