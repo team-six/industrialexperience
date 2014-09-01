@@ -98,7 +98,7 @@ last_names = ["brown","wilson","jackson","davis","white","lopez","miller","jones
 "green","quagmire","harris","chiura","banda","titus","marufu","griffin","young", "hill","kelly","retief","burges"]
  	
 
-50.times do
+100.times do
 	fname = 1 + rand(first_names.length) -1
 	lname = 1 + rand(last_names.length) -1
 	religion = 1 + rand(7)
@@ -127,8 +127,8 @@ current_time = Time.now
 emp_size = Employee.all.size
 
 10000.times do	
-	#Up To 3 Months ago (7776000 secs)
-	benchmark_time = current_time - (1 + rand(2592000)) 
+	#Up To 1 year ago
+	benchmark_time = current_time - (1 + rand(31536000)) 
 	# Max call time of 20 minutes 		
 	minutes = 60 * (1 + rand(25))
 	# Employee IDs ranging from 1 - 19		
