@@ -33,54 +33,6 @@
     </tr>
   </table>
 
-  <div id="presentation-values">
-  	<h5>For Presentation Purposes Only</h5>
-
-  	<div class="calc">
-  	<h6>Average Call Wait Time</h6>
-			(total_call_wait / all_calls.count) = <strong><%= avg_call_wait %></strong> (mins)
-		</div>
-
-		<div class="calc">
-		<h6>Traffic Intensity</h6>
-			avg_call_wait * avg_call_duration = <strong><%= traffic_intensity %></strong>		
-		</div>
-
-		<div class="calc">
-		<h6>Agent Occupancy</h6>
-			agent_occupancy(current_user_active_employees_count) = <strong><%= agent_occupancy(current_user_active_employees_count) %></strong>
-		</div>
-
-		<div class="calc">
-		<h6>Factorial</h6>
-			factorial(all_employees.count) = <strong><%= factorial(all_employees.count) %></strong>
-		</div>
-
-		<div class="calc">
-		<h6>Summation</h6>
-			summation(1, all_employees.count, traffic_intensity) = <strong><%= summation(1, all_employees.count, traffic_intensity) %></strong>
-		</div>
-
-		<div class="calc">
-		<h6>Erlang C Formula</h6>
-
-			erlang_C_formular(<br>
-				&nbsp;&nbsp;traffic_intensity, <br>
-				&nbsp;&nbsp;all_employees.count, <br>
-				&nbsp;&nbsp;agent_occupancy(current_user_active_employees_count), <br>
-				&nbsp;&nbsp;summation(1, all_employees.count, traffic_intensity)<br>
-			) = 
-			<strong>
-			<%=  erlang_C_formular(traffic_intensity, all_employees.count, agent_occupancy(current_user_active_employees_count), summation(1, all_employees.count, traffic_intensity)) %></strong>
-		</div>
-
-		<div class="calc">
-		<h6>Probability of Waiting (Finally!!)</h6>
-			probability_of_call_wait(erlang_C_formular) = <%= probability_of_call_wait(erlang_C_formular(traffic_intensity, all_employees.count, agent_occupancy(current_user_active_employees_count), summation(1, all_employees.count, traffic_intensity))) %>%
-		</div>
-
-	</div>
-
 	</section>
 </div>
 

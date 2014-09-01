@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def new
     #All users shouldn't be available anywhere in the applicattion
     if signed_in? && current_user.role_id == 1 
-      @user = User.new      
+      @user = User.new
     else
       restricted_access
     end
@@ -45,14 +45,15 @@ class UsersController < ApplicationController
   def create
     if signed_in? && current_user.role_id == 1
       @user = User.new(user_params)
+      @user.role_id = 2
 
       respond_to do |format|
         if @user.save
-          if ping('74.125.224.72')
+          #if ping('74.125.224.72')
             UserConfirmationMailer.confirmation_mail(@user).deliver
-          else
-            flash[:notice] = "Mail Couldn't be sent"
-          end
+          #else
+          #  flash[:notice] = "Mail Couldn't be sent"
+          #end
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render action: 'show', status: :created, location: @user }
         else

@@ -10,7 +10,7 @@
 		<ul>
 			<% if current_user.role_id == 2 %>
 
-				<li class="top-level"><span><i class="fa fa-home fa-fw"></i> Dashboard</span>
+				<li class="top-level"><span><i class="fa fa-bars fa-fw"></i> Dashboard</span>
 					<ul class="second-level">
 						<%= nav_link("Home", dashboard_index_path) %>
 					</ul>
@@ -19,14 +19,14 @@
 				<li class="top-level"><span><i class="fa fa-file fa-fw"></i> Reports</span></li>
 				-->
 
-				<li class="top-level"><span><i class="fa fa-users fa-fw"></i> Employees</span>
+				<li class="top-level"><span><i class="fa fa-bars fa-fw"></i> Employees</span>
 					<ul class="second-level">
 						<%= nav_link("New Employee", new_employee_path) %>
 						<%= nav_link("View All", employees_path) %>
 						<%= nav_link("Import Employees", employee_import_path) %>
 					</ul>
 				</li>
-				<li class="top-level"><span><i class="fa fa-phone fa-fw"></i> Calls</span>
+				<li class="top-level"><span><i class="fa fa-bars fa-fw"></i> Calls</span>
 					<ul class="second-level">
 						<%= nav_link("Call Log", calls_path) %>
 					</ul>
@@ -44,19 +44,19 @@
 				-->
 
 			<% elsif current_user.role_id == 1 %>
-				<li class="top-level"><span><i class="fa fa-home fa-fw"></i> Dashboard</span>
+				<li class="top-level"><span><i class="fa fa-bars fa-fw"></i> Dashboard</span>
 					<ul class="second-level">
 						<%= nav_link("Home", administration_path) %>
 					</ul>
 				</li>
 
-				<li class="top-level"><span><i class="fa fa-users fa-fw"></i> Users</span>
+				<li class="top-level"><span><i class="fa fa-bars fa-fw"></i> Users</span>
 					<ul class="second-level">
 						<li><%= link_to "New User", new_user_path %></li>
 						<li><%= link_to "View All", users_path %></li>
 					</ul>
 				</li>
-				<li class="top-level"><span><i class="fa fa-wrench fa-fw"></i> Configuration</span>
+				<li class="top-level"><span><i class="fa fa-bars fa-fw"></i> Configuration</span>
 					<!--
 					<ul class="second-level">
 						<li>New</li>
@@ -64,7 +64,7 @@
 					</ul>
 					-->
 				</li>
-				<li class="top-level"><span><i class="fa fa-cloud fa-fw"></i> System Details</span>
+				<li class="top-level"><span><i class="fa fa-bars fa-fw"></i> System Details</span>
 					
 				</li>
 
