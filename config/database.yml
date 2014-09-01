@@ -56,6 +56,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  database: dd_development
+  username: postgres
+  password: admin
   port: 5432
   pool: 5
   timeout: 5000
