@@ -50,3 +50,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Ruby Version In Use
+ruby "2.1.1"
