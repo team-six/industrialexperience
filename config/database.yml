@@ -56,11 +56,11 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: dd_production
-  host: localhost
+  database: d8mbpe4gbjvfp5
+  host: ec2-54-197-238-8.compute-1.amazonaws.com
   pool: 5  
-  username: postgres
-  password: admin
+  username: woekbewlfipnbn
+  password: 3kMMD54xU0pqnBlyvdSn7AUXk6
 
 #Heroku
 #production:
