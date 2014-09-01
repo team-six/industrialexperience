@@ -1,4 +1,4 @@
-class CreateDB < ActiveRecord::Migration
+class CreateDb < ActiveRecord::Migration
   def change
     create_table "calls", force: true do |t|
 	    t.datetime "call_startTime"
