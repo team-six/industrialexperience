@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	## Associations
 	has_many :employees
 	has_many :calls, through: :employees
+	has_one :department
 
 	## Password Encryption using BCrypt
 	has_secure_password

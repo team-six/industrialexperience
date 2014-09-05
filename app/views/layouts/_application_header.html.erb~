@@ -4,7 +4,7 @@
 			<%= image_tag "favicon3.png" %>
 		</div><!-- /group-logo -->
 		<div class="header-element" id="user-name">
-			<span class="user-full-name"><%= link_to current_user.full_name, user_path(current_user) %> | <%= Department.find(current_user.department_id).dept_name%></span>
+			<span class="user-full-name"><%= link_to current_user.full_name, user_path(current_user) %> | <%= Role.find(current_user.role_id).role_name%></span>
 		</div><!-- /user-name-->
 
 		<div class="header-element" id="sign-out">

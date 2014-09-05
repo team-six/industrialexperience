@@ -12,20 +12,20 @@
 		Dashboard Quick Stats
 	===================================================== -->
 
-	<table class="dashboard-stats">
+	<table class="statistics-table">
     <thead>
   	  <th>Active Employees</th>
       <th>Avg Daily Call Load</th>
       <th>Avg Call Duration</th>
       <th>Success Percentage</th>
     </thead>
-    <tr id="performance-values">
+    <tr class="values">
       <td><%= active_employees_display %></td>
       <td><%= calls_per_day %></td>
       <td><%= avg_call_duration_refactor %></td>
       <td><%= success_percentage %>%</td>
     </tr>
-    <tr id="performance-comparison">
+    <tr class="comparison">
       <td><%= link_to "View Employees", employees_path %></td>
       <td>No Messages</td>
       <td><%= link_to "View Log", calls_path %></td>
@@ -78,7 +78,7 @@
 </div>
 -->
 
-
+<!--
 <div class="six columns container">
   <header class="main-page-header">
     Morris
@@ -92,7 +92,7 @@
     new Morris.Line({
       // ID of the element in which to draw the chart.
       element: 'myfirstchart',
-      // Chart data records -- each entry in this array corresponds to a point on
+      // Chart data records - each entry in this array corresponds to a point on
       // the chart.
       data: [
         { year: '2008', value: 20 },
@@ -105,7 +105,7 @@
       xkey: 'year',
       // A list of names of data record attributes that contain y-values.
       ykeys: ['value'],
-      // Labels for the ykeys -- will be displayed when you hover over the
+      // Labels for the ykeys - will be displayed when you hover over the
       // chart.
       labels: ['Value']
     });
@@ -115,6 +115,7 @@
 
 
 </div>
+-->
 </div>
 
 

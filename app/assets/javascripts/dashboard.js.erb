@@ -1,7 +1,9 @@
 //Menu Drop Down
-$(".top-level > span").click(function(){	
+$(".top-level").click(function(){	
 	$(this).next(".second-level").slideToggle("fast");
 });
+
+
 
 //Import CSV Toggle
 $(".import-button").click(function(){
@@ -15,9 +17,9 @@ setTimeout(function(){
 
 
 //Find active link, open parent
-$(".current").parent().parent().find("span").click();
+$(".current").parent().prev(".top-level").click();
 
-$(".active-section").show();
+//$(".active-section").show();
 
 //Live Clock
 

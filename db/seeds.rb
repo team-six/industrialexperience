@@ -10,6 +10,23 @@ Role.create!([
 
 
 #======================================
+# DEPARTMENTS
+#======================================
+
+Department.create!([
+	{ dept_name: "administration"},
+	{ dept_name: "accounting"},
+	{ dept_name: "marketing"},
+	{ dept_name: "human resources"},
+	{ dept_name: "production"},
+	{ dept_name: "sales"},
+	{ dept_name: "technical"},
+	{ dept_name: "information technology"}
+])
+
+dept_size = Department.all.size
+
+#======================================
 # USERS
 #======================================
 
@@ -21,7 +38,8 @@ User.create!([
 		role_id: 1,
 		sign_in_count: 0,
 		password: "password",
-		password_confirmation: "password"
+		password_confirmation: "password",
+		department_id: 1
 	},
 	{
 		user_fname: "thabo",
@@ -30,7 +48,8 @@ User.create!([
 		role_id: 2,
 		sign_in_count: 0,
 		password: "password",
-		password_confirmation: "password"
+		password_confirmation: "password",
+		department_id: 1 + rand(dept_size)
 	},
 	{
 		user_fname: "tafadzwa", 
@@ -39,7 +58,8 @@ User.create!([
 		role_id: 2,
 		sign_in_count: 0,
 		password: "password",
-		password_confirmation: "password"
+		password_confirmation: "password",
+		department_id: 1 + rand(dept_size)
 	},
 	{
 		user_fname: "tafadzwa", 
@@ -48,7 +68,8 @@ User.create!([
 		role_id: 2,
 		sign_in_count: 0,
 		password: "password",
-		password_confirmation: "password"
+		password_confirmation: "password",
+		department_id: 1 + rand(dept_size)
 	},
 	{
 		user_fname: "tanaka", 
@@ -57,7 +78,8 @@ User.create!([
 		role_id: 2,
 		sign_in_count: 0,
 		password: "password",
-		password_confirmation: "password"
+		password_confirmation: "password",
+		department_id: 1 + rand(dept_size)
 	},
 	{
 		user_fname: "mohammed", 
@@ -66,7 +88,8 @@ User.create!([
 		role_id: 2,
 		sign_in_count: 0,
 		password: "password",
-		password_confirmation: "password"
+		password_confirmation: "password",
+		department_id: 1 + rand(dept_size)
 	}
 ])
 
@@ -99,12 +122,12 @@ last_names = ["brown","wilson","jackson","davis","white","lopez","miller","jones
 "green","quagmire","harris","chiura","banda","titus","marufu","griffin","young", "hill","kelly","retief","burges"]
  	
 
-500.times do
+312.times do
 	fname = 1 + rand(first_names.length) -1
 	lname = 1 + rand(last_names.length) -1
 	religion = 1 + rand(7)
 	status = 1 + rand(4)
-	user = 2 + rand(user_size)
+	user = 1 + rand(user_size)
 	  		
  	Employee.create! ([{
 		employee_fname: first_names[fname],
@@ -127,7 +150,7 @@ end
 current_time = Time.now
 emp_size = Employee.all.size
 
-5000.times do	
+8000.times do	
 	#Up To 1 year ago
 	benchmark_time = current_time - (1 + rand(31536000)) 
 	# Max call time of 20 minutes 		

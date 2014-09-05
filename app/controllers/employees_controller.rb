@@ -12,9 +12,9 @@ class EmployeesController < ApplicationController
       if params[:search]
         search_query = params[:search]
         @employees = all_employees.search(params[:search]).sort { |a,b| a.employee_lname <=> b.employee_lname }
-        if(@employees.size  == 0)
-          flash[:notice] = "Cant find employee named " + search_query.to_s.capitalize
-        end
+        #if(@employees.size  == 0)
+          #flash[:notice] = "Cant find employee named " + search_query.to_s.capitalize
+        #end
       else
         @employees = all_employees.sort { |a,b| a.employee_lname <=> b.employee_lname }
       end

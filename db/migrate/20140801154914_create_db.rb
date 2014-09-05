@@ -10,7 +10,7 @@ class CreateDb < ActiveRecord::Migration
 	    t.integer  "call_duration"
 	  end
 
-	  create_table "department", force: true do |t|
+	  create_table "departments", force: true do |t|
 	    t.string   "dept_name"
 	    t.datetime "created_at"
 	    t.datetime "updated_at"
@@ -62,12 +62,12 @@ class CreateDb < ActiveRecord::Migration
 	    t.datetime "updated_at"
 	  end
 
-	  create_table "religious_holidays", force: true do |t|
-	    t.integer "religion_id"
-	    t.date    "rh_startDate"
-	    t.string  "rh_name"
-	    t.date    "rh_endDate"
-	  end
+	  #create_table "religious_holidays", force: true do |t|
+	  #  t.integer "religion_id"
+	  #  t.date    "rh_startDate"
+	  #  t.string  "rh_name"
+	  #  t.date    "rh_endDate"
+	  #end
 
 	  create_table "roles", force: true do |t|
 	    t.string   "role_name"

@@ -1,13 +1,13 @@
 <!-- Message to the User -->
 <% flash.each do |key, value| %>
-  <div class="session-flash alert alert-<%= key %>"><%= h(value) %></div>
+  <div class="flash session-flash alert alert-<%= key %>"><%= h(value) %></div>
 <% end %>
 
 <section id="login" class="row">
 <!-- Group Logo -->
 <header>
 	<%= link_to image_tag("favicon3.png"), root_path, :title => "Dimension Data WFMS" %>
-	<p>WFMS Sign In</p>
+	<p><strong>WFMS</strong> Sign In</p>
 </header>
 
 <!-- Form for user login -->

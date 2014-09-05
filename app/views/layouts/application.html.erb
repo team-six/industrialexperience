@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workforce Management System</title>
+  <title>Dimension Data WFMS </title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => false %>
   <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
 
@@ -31,8 +31,10 @@
 						
 						<%= form_tag(employees_path, :method => "get", id: "search-form") do %>
   						<%= text_field_tag :search, params[:search], placeholder: "Search Employees" %>
-  						<%= submit_tag "Search", :name => nil %>
+  						<%= button_tag(type: 'submit', :class => 'submit')  do %>
+  							<i class='fa fa-search'></i>
   						<% end %>
+  					<% end %>
 
 					</div><!-- /search -->
 				

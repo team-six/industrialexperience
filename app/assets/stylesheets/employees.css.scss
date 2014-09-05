@@ -1,59 +1,9 @@
-#employee-details{
-	margin-bottom: 20px;
 
-	a{ color: #373737; }
 
-	table{
-
-		th{
-			background: #2c3e50;
-			color: #fff;
-		}
-		tr{
-			background: #fff;
-			td:first-child{
-				width: 12%;
-			}
-		}
-	}
-
-	h5{
-		text-transform: uppercase;
-		margin-bottom: 10px;
-	}
+.employee-name{
+	text-decoration: underline;
 }
 
-#employee-performance{
-	table{
-		text-align: center;
-		th{
-			text-align: center;
-			text-transform: uppercase;
-			background: #34495e;
-			border-right: 1px solid #2c3e50;
-		}
-	}
-	#performance-values{
-		td{
-			font-size: 1.6em;
-			padding-top: 20px;
-			padding-bottom: 20px;
-			background: #2c3e50;
-			color: #fff;
-			border-right: 1px solid #34495e;
-		}
-	}
-
-	#performance-comparison{
-		td{
-			background: #34495e;
-			color: #ccc;
-			padding-top: 10px;
-			padding-bottom: 10px;
-			border-right: 1px solid #2c3e50;
-		}
-	}
-}
 
 #employee-call-data{
 	width: 100%;

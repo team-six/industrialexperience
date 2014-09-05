@@ -4,7 +4,7 @@
   <span class="import-button"><%= link_to "Add New", new_employee_path %></span>
 </header>
 
-<table>
+<table class="general-table">
   <thead>
     <tr>
       <th>Employee Id</th>
@@ -13,7 +13,6 @@
       <th>Contact Number</th>
       <th>Email Address</th>
       <th>Current Status</th>
-      <th></th>
     </tr>
   </thead>
 
@@ -21,12 +20,11 @@
     <% @employees.each do |employee| %>
       <tr>
         <td>DD_<%= employee.id %></td>
-        <td><%= link_to employee.full_name_rev, employee %></td>
+        <td><%= link_to employee.full_name_rev, employee, :class => "employee-name" %></td>
         <td><%= employee.employee_started %></td>
         <td><%= employee.employee_contact_num %></td>
         <td><%= employee.employee_email %></td>
-        <td>Fix</td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>        
+        <td>Fix</td>      
       </tr>
     <% end %>
   </tbody>

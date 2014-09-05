@@ -9,8 +9,7 @@
   </header>
 
   <div id="employee-details">
-    <h5>Personal Details</h5>
-    <table>
+    <table class="general-table">
       <thead>
         <th width="25%">Email</th>
         <th width="25%">Contact Number</th>
@@ -26,9 +25,7 @@
         <td>Fix</td>
       </tr>
       </tbody>
-    </table>
-
-    
+    </table> 
   </div><!-- Employee Details -->
 </section>
 </div>
@@ -43,7 +40,7 @@
       <strong>Terms:</strong> <strong>LT</strong> = Lower Than, <strong>HT</strong> = Higher Than, <strong>Avg</strong> = Average
     </div>
 
-    <table>
+    <table class="statistics-table">
       <thead>
         <th>Total Calls Handled</th>
         <th>Success Rate</th>
@@ -51,7 +48,7 @@
         <th>Avg Time / Call</th>
       </thead>
       <% employee_performance(@employee) %>
-      <tr id="performance-values">
+      <tr class="values">
         <td><%= @call_count %></td>
         <td><%= @success_percentage %>%</td>
         <td><%= @calls_per_day %></td>
@@ -59,7 +56,7 @@
       </tr>
       
 
-      <tr id="performance-comparison">
+      <tr class="comparison">
         <td><%= employee_call_count_comparison(@employee) %></td>
         <td><%= employee_success_comparison(@employee) %></td>
         <td><%= employee_avg_calls_comparison(@employee) %></td>
@@ -88,7 +85,7 @@
     <header class="emp-performance-header">
        Call History
     </header>
-    <table>
+    <table class="general-table">
     <thead>
       <th>Date</th>
       <th>Start Time</th>

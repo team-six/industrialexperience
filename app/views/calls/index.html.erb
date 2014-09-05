@@ -20,7 +20,7 @@
 				<td><%= call.call_starttime.strftime("%I:%M%p") %></td>
 				<td><%= call.call_endTime.strftime("%I:%M%p") %></td>
 				<td><%= call.call_wait_period %>  (approx. <%= (call.call_wait_period/60) %>mins)</td>
-				<td><%= ((call.call_endTime-call.call_startTime)/60).to_i %></td>
+				<td><%= ((call.call_endTime-call.call_starttime)/60).to_i %></td>
 				<td>Fix</td>
 			</tr>
 		<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812163432) do
+ActiveRecord::Schema.define(version: 20140905163038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140812163432) do
     t.integer  "call_duration"
   end
 
-  create_table "department", force: true do |t|
+  create_table "departments", force: true do |t|
     t.string   "dept_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20140812163432) do
     t.datetime "updated_at"
     t.integer  "sign_in_count"
     t.integer  "role_id"
+    t.integer  "department_id"
   end
 
 end
