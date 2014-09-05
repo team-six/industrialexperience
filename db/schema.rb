@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140812163432) do
   enable_extension "plpgsql"
 
   create_table "calls", force: true do |t|
-    t.datetime "call_startTime"
+    t.datetime "call_starttime"
     t.datetime "call_endTime"
     t.integer  "call_wait_period"
     t.integer  "employee_id"
