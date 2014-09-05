@@ -90,6 +90,7 @@ Religion.create!([
 
 ## Avoid clashing emails
 email_index = 1
+user_size = User.all.size
 
 first_names = ["william","miguel","mason","ethan","logan", "lucas", "owen", "bob","noah","pedro",
 "louis","kendra","stewie","glenn","patricia","mary","sally","jane","megan","sarah","jovan","grace","london","mpho"]
@@ -98,12 +99,12 @@ last_names = ["brown","wilson","jackson","davis","white","lopez","miller","jones
 "green","quagmire","harris","chiura","banda","titus","marufu","griffin","young", "hill","kelly","retief","burges"]
  	
 
-100.times do
+500.times do
 	fname = 1 + rand(first_names.length) -1
 	lname = 1 + rand(last_names.length) -1
 	religion = 1 + rand(7)
 	status = 1 + rand(4)
-	user = 2 + rand(5)
+	user = 2 + rand(user_size)
 	  		
  	Employee.create! ([{
 		employee_fname: first_names[fname],
