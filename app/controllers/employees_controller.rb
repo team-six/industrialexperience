@@ -43,12 +43,12 @@ class EmployeesController < ApplicationController
     if signed_in? && current_user.role_id == 2
       begin
         Employee.import(params[:file])
-        imported = :file.class
-        flash[:success] = "#{imported}Employees Imported Successfully"
+        flash[:success] = "Employees Imported Successfully"
         redirect_to employees_path
       rescue
-        flash[:error] = "#{imported} Invalid CSV File"
-        redirect_to employees_path
+        flash[:error] = "Invalid CSV File"
+
+        redirect_to employee_import_path
       end
     else
       restricted_access

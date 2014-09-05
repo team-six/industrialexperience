@@ -1,5 +1,6 @@
 class Employee < ActiveRecord::Base
 	require 'csv'
+	include SessionHelper
 
 	#Associations
 	belongs_to :user
@@ -9,6 +10,7 @@ class Employee < ActiveRecord::Base
 
 	#CallBacks - Things to be done before object is saved to database
 	before_save { |employee| employee.employee_email = employee_email.downcase }
+	before_save :set_owner
 
 	#REGEX for correct email format
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -39,6 +41,7 @@ class Employee < ActiveRecord::Base
 	end
 
 	def set_owner
+		self.user_id = current_user.id
 	end
 
 	def self.import(file)
