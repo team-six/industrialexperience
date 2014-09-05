@@ -140,7 +140,7 @@ emp_size = Employee.all.size
 	call_status = 1 + rand(2) - 1
 
 	Call.create! ([{		
-		call_startTime: benchmark_time,
+		call_starttime: benchmark_time,
 		call_endTime: benchmark_time + minutes,
 		employee_id: employee,
 		call_wait_period: call_wait,

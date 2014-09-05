@@ -24,7 +24,7 @@ class Call < ActiveRecord::Base
 	end
 
 	def set_call_duration
-		self.call_duration = self.call_endTime - self.call_startTime
+		self.call_duration = self.call_endTime - self.call_starttime
 	end
 
 end
