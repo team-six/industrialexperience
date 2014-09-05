@@ -126,7 +126,7 @@ end
 current_time = Time.now
 emp_size = Employee.all.size
 
-10000.times do	
+5000.times do	
 	#Up To 1 year ago
 	benchmark_time = current_time - (1 + rand(31536000)) 
 	# Max call time of 20 minutes 		
