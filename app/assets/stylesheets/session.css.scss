@@ -1,7 +1,12 @@
 #session-new,#welcome-index{
 	width: 100%;
 	height: 100%;
-	background: url("bkg-3.jpg");
+	background: url("cover.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }
 
 section#login{
@@ -21,11 +26,9 @@ section#login{
 		letter-spacing: -2px;
 
 		img{
-			width: 60px;
-			padding: 5px;
-			border: 0px solid #16a085;
-			border-radius: 70px;
-			display: none;
+			width: 100px;
+			float: left;	
+			margin-right: 20px;
 		}
 
 		p{
@@ -52,14 +55,15 @@ section#login{
 		float: left;
 		text-align: center;
 		color: #fff;
-		background: #16a085;
-		border: none;
+		background: #6abe28;
+		border: 1px solid #5ea924;
 		-webkit-border-top-left-radius: 2px;
 		-webkit-border-bottom-left-radius: 2px;
 		-moz-border-radius-topleft: 2px;
 		-moz-border-radius-bottomleft: 2px;
 		border-top-left-radius: 2px;
 		border-bottom-left-radius: 2px;
+		border-right: none;
 
 		i{
 			margin-top:  15px;
@@ -70,7 +74,7 @@ section#login{
 		width: 85%;
 		float: left;
 		height: 100%;
-		border: none;
+		border: 1px solid #ccc;
 		padding-left: 10px;
 		padding-right: 10px;
 		padding-top: 0;
@@ -81,11 +85,11 @@ section#login{
 		-moz-border-radius-bottomright: 2px;
 		border-top-right-radius: 2px;
 		border-bottom-right-radius: 2px;
+		border-left: none;
 
 		&:focus{
-
 			outline: none;
-			border-right: 5px solid #16a085;
+			background: #FDE3A7;
 		}
 	}
 

@@ -98,8 +98,8 @@
     </thead>
   <% @calls_report.each do |call| %>
     <tr>
-      <td><%= call.call_startTime.strftime("%d %b,%Y") %></td>
-      <td><%= call.call_startTime.strftime("%I:%M%p") %></td>
+      <td><%= call.call_starttime.strftime("%d %b,%Y") %></td>
+      <td><%= call.call_starttime.strftime("%I:%M%p") %></td>
       <td><%= call.call_endTime.strftime("%I:%M%p") %></td>
       <td><%= call.call_wait_period %>  (approx. <%= convert_to_mins(call.call_wait_period) +1 %>mins)</td>
       <td><%= convert_to_mins(call.call_duration) %></td>

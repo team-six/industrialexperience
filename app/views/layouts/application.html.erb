@@ -3,7 +3,10 @@
 <head>
   <title>Workforce Management System</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => false %>
-  <%= favicon_link_tag 'favicon.png' %>
+  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
+
+
+  <%= favicon_link_tag 'dd_fav.png' %>
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= bodytag_id %>">
@@ -50,7 +53,11 @@
 	
 	<%= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css", media: "all" %>
   <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans", media: "all" %>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+	
+
 
 </body>
 </html>

@@ -11,25 +11,27 @@
     </div>
   <% end %>
 
-  <ul class="general-form">
-    <li><%= f.label "First Name" %> <br>
-      <%= f.text_field :employee_fname, :placeholder => "First Name" %>
+  <ul class="basic-form">
+    <li>
+      <%= f.label "First Name" %>
+      <%= f.text_field :employee_fname, :class => "input" %>
     </li>
 
-    <li><%= f.label "Last Name" %> <br>
-      <%= f.text_field :employee_lname, :as => "Last Name", :placeholder => "Last Name" %>
+    <li>
+      <%= f.label "Last Name" %>
+      <%= f.text_field :employee_lname, :class => "input" %>
     </li>
 
-    <li><%= f.label "Employment Commencement" %><br>
-      <%= f.date_select :employee_started %>
+    <li><%= f.label "Employment Commencement" %>
+      <%= f.date_select :employee_started, :class => "input" %>
     </li>
 
-    <li><%= f.label "Contact Number" %><br>
-      <%= f.text_field :employee_contact_num, :placeholder => "Contact Number" %>
+    <li><%= f.label "Contact Number" %>
+      <%= f.text_field :employee_contact_num, :class => "input" %>
     </li>
 
-    <li><%= f.label "Email Address" %><br>
-      <%= f.text_field :employee_email, :placeholder => "Email Address" %>
+    <li><%= f.label "Email Address" %>
+      <%= f.text_field :employee_email, :class => "input" %>
     </li>
 
      <li><%= f.label "Religion" %><br>

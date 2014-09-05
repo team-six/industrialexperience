@@ -11,13 +11,13 @@ module ApplicationHelper
 	#==================================================================
 	def call_sorter(call_array)
 		sorted_array = call_array.sort do |a,b| 
-      [ b.call_startTime.strftime("%m").to_i, 
-        b.call_startTime.strftime("%d").to_i,
-        a.call_startTime
+      [ b.call_starttime.strftime("%m").to_i, 
+        b.call_starttime.strftime("%d").to_i,
+        a.call_starttime
       ] <=> 
-      [ a.call_startTime.strftime("%m").to_i, 
-        a.call_startTime.strftime("%d").to_i,
-        b.call_startTime 
+      [ a.call_starttime.strftime("%m").to_i, 
+        a.call_starttime.strftime("%d").to_i,
+        b.call_starttime 
       ]
     end 
 	end
@@ -57,8 +57,8 @@ module ApplicationHelper
 	## Total number of days from first call to last call
 	def total_num_days
 		if all_calls.any?
-			recent_date = all_calls.maximum("call_startTime")
-			oldest_date = all_calls.minimum("call_startTime")
+			recent_date = all_calls.maximum("call_starttime")
+			oldest_date = all_calls.minimum("call_starttime")
 			total_days = ((recent_date - oldest_date)/86400).floor
 		end
 		return total_days.to_f
@@ -255,4 +255,17 @@ module ApplicationHelper
 	    erlang =  r/(r + (1 - (agent_occup / 100))* sum_a)
 	end
 
+
+#==================================================================
+##	Graphs
+#==================================================================
+
+	def monthly_calls
+		data = []
+		for x in 1..12 do		
+			data << all_calls.where("extract(month from call_starttime) = ?", x).count
+		end
+		# Return Data Set
+		data
+	end
 end

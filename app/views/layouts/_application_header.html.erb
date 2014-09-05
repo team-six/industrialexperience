@@ -1,14 +1,14 @@
 <section id="main-header">
 	<div id="header-items">
 		<div id="group-logo">
-			<%= image_tag "favicon.png" %>
+			<%= image_tag "favicon3.png" %>
 		</div><!-- /group-logo -->
 		<div class="header-element" id="user-name">
 			<span class="user-full-name"><%= link_to current_user.full_name, user_path(current_user) %> | <%= Role.find(current_user.role_id).role_name%></span>
 		</div><!-- /user-name-->
 
 		<div class="header-element" id="sign-out">
-			<span><%= link_to "Sign Out", signout_path, method: "delete" %></span>
+			<span class="signout-button"><i class="fa fa-sign-out"></i><%= link_to "Sign Out", signout_path, method: "delete" %></span>
 		</div><!-- /sign-out -->
 	</div><!-- header-items -->	
 </section><!-- /main-header -->
