@@ -92,6 +92,7 @@ class CreateDb < ActiveRecord::Migration
 	    t.datetime "updated_at"
 	    t.integer  "sign_in_count"
 	    t.integer  "role_id"
+	    t.integer  "department_id"
 	  end
   end
 end
