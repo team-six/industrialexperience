@@ -37,86 +37,32 @@
 </div>
 
 <div class="row">
-<!--
-<div class="six columns container">
-  <header class="main-page-header">
-    Call Volume ( Sep '13 - Sep '14 )
+
+
+
+<div class="six columns container charting">
+  <header>
+    Monthly Call Volume
+    <p class="chart-description"> >> total calls per month</p>
   </header>
-
-<div class="chart-cointainer">
-  <canvas id="line-graph" width="2" height="2"></canvas>
-  <script>
-        var lineChartData = {
-          labels : ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov", "Dec"],
-          datasets : [
-            {
-              label: "My Second dataset",
-              fillColor : "rgba(151,187,205,0.2)",
-              strokeColor : "rgba(151,187,205,1)",
-              pointColor : "rgba(151,187,205,1)",
-              pointStrokeColor : "#fff",
-              pointHighlightFill : "#fff",
-              pointHighlightStroke : "rgba(151,187,205,1)",
-              data : <%= monthly_calls %>
-            }
-          ]
-
-        }
-
-      window.onload = function(){
-        var ctx = document.getElementById("line-graph").getContext("2d");
-        myLine = new Chart(ctx).Line(lineChartData, {
-          responsive: true,
-          animation: false,
-          scaleFontColor: "#373737"
-        });
-      }
-  </script>
-</div>  
-
-
-</div>
--->
-
-<!--
-<div class="six columns container">
-  <header class="main-page-header">
-    Morris
-  </header>
-
-  <div class="chart-cointainer">
-    <div id="myfirstchart" style="height: 250px;"></div>
+  <div id="chart-container">
+    <canvas id="chart-bookings-per-month" width="300" height="200"></canvas>
   </div>
+</div>
 
-  <script>
-    new Morris.Line({
-      // ID of the element in which to draw the chart.
-      element: 'myfirstchart',
-      // Chart data records - each entry in this array corresponds to a point on
-      // the chart.
-      data: [
-        { year: '2008', value: 20 },
-        { year: '2009', value: 10 },
-        { year: '2010', value: 5 },
-        { year: '2011', value: 5 },
-        { year: '2012', value: 20 }
-      ],
-      // The name of the data record attribute that contains x-values.
-      xkey: 'year',
-      // A list of names of data record attributes that contain y-values.
-      ykeys: ['value'],
-      // Labels for the ykeys - will be displayed when you hover over the
-      // chart.
-      labels: ['Value']
-    });
-
-
-  </script>
+<div class="six columns container charting">
+  <header>
+    Monthly Traffic Intensity
+    <p class="chart-description"> >> average occupancy of call centre per month</p>
+  </header>
+  <div id="chart-container">
+    <canvas id="chart-bookings" width="300" height="200"></canvas>
+  </div>
+</div>
 
 
 </div>
--->
-</div>
+
 
 
 

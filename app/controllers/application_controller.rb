@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   include SessionHelper
   include ApplicationHelper
+  
 
   def set_no_cache
 	  response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"

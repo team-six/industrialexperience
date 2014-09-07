@@ -5,7 +5,7 @@
 
 Role.create!([
 	{ role_name: "admin" },
-	{ role_name: "layman" }
+	{ role_name: "general" }
 ])
 
 
@@ -25,6 +25,21 @@ Department.create!([
 ])
 
 dept_size = Department.all.size
+
+#======================================
+# EMPLOYEE STATUS TYPE
+#======================================
+
+EmployeeStatus.create!([
+	{ es_type: "active" },
+	{ es_type: "company leave" },
+	{ es_type: "maternal leave" },
+	{ es_type: "sick leave" },
+	{ es_type: "compassionate leave" },
+	{ es_type: "retrenched" }
+])
+
+es_size = EmployeeStatus.all.size
 
 #======================================
 # USERS
@@ -107,6 +122,8 @@ Religion.create!([
 	{religion_name: "atheism"}			
 ]) 
 
+religion_size = Religion.all.size
+
 ##=======================================================
 ## Employee Generator
 ##=======================================================
@@ -125,8 +142,8 @@ last_names = ["brown","wilson","jackson","davis","white","lopez","miller","jones
 312.times do
 	fname = 1 + rand(first_names.length) -1
 	lname = 1 + rand(last_names.length) -1
-	religion = 1 + rand(7)
-	status = 1 + rand(4)
+	religion = 1 + rand(religion_size)
+	status = 1 + rand(es_size)
 	user = 1 + rand(user_size)
 	  		
  	Employee.create! ([{

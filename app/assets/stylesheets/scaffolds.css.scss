@@ -97,6 +97,16 @@ table.general-table{
   tr:nth-child(even){
     background: #e7e7e7;  
   }
+
+  .td-client{
+    background: #424242;
+    color: #fff;
+    border-right: 1px solid #3a3a3a;
+
+    &:first-child{
+      border-top: 1px solid #3a3a3a;
+    }
+  }
 }
 
 #notice {
@@ -326,6 +336,28 @@ div.performance-legend{
       float: left;
       border-radius: 0;
     }
+  }
+}
+
+.pagination{
+  width: 100%;
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  text-align: center;
+
+  a{
+    border: 1px solid #ccc;
+    padding: 3px;
+    background: #f2f2f2;
+  }
+
+  .current{
+    border: 1px solid #2574A9;
+    padding: 3px;
+    background: #5C97BF;
+    color: #fff;
   }
 }
 

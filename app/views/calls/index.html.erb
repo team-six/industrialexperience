@@ -4,9 +4,10 @@
 		<header class="main-page-header">
 			Call Log	( <%= all_calls.count %> )
 		</header>
-		
-		<table>
+
+		<table class="general-table">
 			<thead>
+				<th>Client</th>
 				<th>Date</th>
 				<th>Start Time</th>
 				<th>End Time</th>
@@ -16,14 +17,17 @@
 			</thead>
 		<% @calls.each do |call| %>
 			<tr>
+				<td class="td-client">Deloitte</td>
 				<td><%= call.call_starttime.strftime("%d %b,%Y") %></td>
 				<td><%= call.call_starttime.strftime("%I:%M%p") %></td>
 				<td><%= call.call_endTime.strftime("%I:%M%p") %></td>
 				<td><%= call.call_wait_period %>  (approx. <%= (call.call_wait_period/60) %>mins)</td>
-				<td><%= ((call.call_endTime-call.call_starttime)/60).to_i %></td>
-				<td>Fix</td>
+				<td><%= ((call.call_endTime-call.call_starttime)/60).to_i %></td>		
+				<td><%= all_employees.find(call.employee_id).full_name %></td>
 			</tr>
 		<% end %>
 		</table>
+
+		<%= will_paginate @calls %>
 	</section>
 </div>

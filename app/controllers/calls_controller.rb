@@ -7,8 +7,10 @@ class CallsController < ApplicationController
   def index
     if signed_in? && current_user.role_id == 2
       # Get last 200 Calls, then sort (Calling sorter method in application_helper.rb)
-      @call_list = all_calls.take(10)
+      @call_list = all_calls.paginate(:page => params[:page], :per_page => 30)
       @calls = call_sorter(@call_list)
+
+      @calls = @calls.paginate(:page => params[:page], :per_page => 20)
     else
       restricted_access
     end

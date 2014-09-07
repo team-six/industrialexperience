@@ -7,7 +7,7 @@ gem 'rails', '4.0.3'
 gem 'pg'
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -19,6 +19,15 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+# Pagination
+gem 'will_paginate', '~> 3.0'
+
+# ChartJS
+gem 'chart-js-rails', '~> 0.0.7'
+
+#Gon for variables in js
+gem 'gon', '~> 5.2.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

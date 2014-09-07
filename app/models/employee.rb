@@ -6,6 +6,7 @@ class Employee < ActiveRecord::Base
 	belongs_to :user
 	has_many :skills
 	has_many :calls
+	has_one :employee_status
 	#accepts_nested_attributes_for :user
 
 	#CallBacks - Things to be done before object is saved to database
