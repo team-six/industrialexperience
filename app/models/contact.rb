@@ -6,9 +6,10 @@ class Contact < MailForm::Base
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
   def headers
+    admin_email = User.find(1).user_email
     {
       :subject => "Workforce Management Contact Email",
-      :to => "tafibanda@gmail.com",
+      :to => "#{admin_email}",
       :from => %("#{name}" <#{email}>)
     }
   end

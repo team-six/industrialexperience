@@ -16,11 +16,7 @@ class EmployeesController < ApplicationController
             [a.employee_status_id, a.employee_lname ]<=>
             [b.employee_status_id, b.employee_lname]
           }.paginate(:page => params[:page], :per_page => 15)
-        #if(@employees.size  == 0)
-          #flash[:notice] = "Cant find employee named " + search_query.to_s.capitalize
-        #end
       else
-        #@employees = all_employees.sort { |a,b| a.employee_lname <=> b.employee_lname }
         @employees = all_employees.sort { |a,b| 
             [a.employee_status_id, a.employee_lname ]<=>
             [b.employee_status_id, b.employee_lname]
