@@ -12,13 +12,19 @@ class EmployeesController < ApplicationController
       if params[:search]
         search_query = params[:search]
         #@employees = all_employees.search(params[:search]).sort { |a,b| a.employee_lname <=> b.employee_lname }
-        @employees = all_employees.search(params[:search]).sort { |a,b| a.employee_lname <=> b.employee_lname }.paginate(:page => params[:page], :per_page => 15)
+        @employees = all_employees.search(params[:search]).sort { |a,b| 
+            [a.employee_status_id, a.employee_lname ]<=>
+            [b.employee_status_id, b.employee_lname]
+          }.paginate(:page => params[:page], :per_page => 15)
         #if(@employees.size  == 0)
           #flash[:notice] = "Cant find employee named " + search_query.to_s.capitalize
         #end
       else
         #@employees = all_employees.sort { |a,b| a.employee_lname <=> b.employee_lname }
-        @employees = all_employees.paginate(:page => params[:page], :per_page => 15)
+        @employees = all_employees.sort { |a,b| 
+            [a.employee_status_id, a.employee_lname ]<=>
+            [b.employee_status_id, b.employee_lname]
+          }.paginate(:page => params[:page], :per_page => 15)
       end
     else
       restricted_access

@@ -1,5 +1,7 @@
 Dd::Application.routes.draw do
 
+
+  resources :password_resets 
   resources :skills  
   resources :users
   resources :session, only: [:new, :create, :destroy]
@@ -27,6 +29,10 @@ Dd::Application.routes.draw do
     #get "system_user/index"
     get 'administration', to: "admin_users#index", as: "administration"
     get 'employee_import', to: "employees#employee_import"
+	match '/contacts',     to: 'contacts#new',             via: 'get'
+	resources "contacts", only: [:new, :create]
+
+	
 
 
 

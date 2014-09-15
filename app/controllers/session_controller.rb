@@ -21,8 +21,15 @@ class SessionController < ApplicationController
   	@user = user
 
     if user && user.authenticate(params[:session][:password])
-        user.increment_login
-    		sign_in user
+		if params[:remember_me]  
+			cookies.permanent[:auth_token] = user.auth_token  
+		else  
+			cookies[:auth_token] = user.auth_token    
+		end 
+		
+		user.increment_login
+		
+		sign_in user
         
 
         #User Type determines which interface to load
@@ -41,6 +48,8 @@ class SessionController < ApplicationController
     #Before destroy, save user name for logging out message
     leaving_user = current_user.user_fname.capitalize + " " + current_user.user_lname.capitalize
 
+	cookies.delete(:auth_token) 
+	
     sign_out
     flash[:success] = "#{leaving_user} logged out successfully"
     redirect_to signin_path

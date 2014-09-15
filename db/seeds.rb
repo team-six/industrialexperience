@@ -58,6 +58,16 @@ User.create!([
 	},
 	{
 		user_fname: "thabo",
+		user_lname: "jay",
+		user_email: "thabotitus@gmail.com",
+		role_id: 2,
+		sign_in_count: 0,
+		password: "password",
+		password_confirmation: "password",
+		department_id: 1 + rand(dept_size)
+	},
+	{
+		user_fname: "thabo",
 		user_lname: "titus",
 		user_email: "ttitus@team-six.com",
 		role_id: 2,
@@ -69,7 +79,7 @@ User.create!([
 	{
 		user_fname: "tafadzwa", 
 		user_lname: "banda", 
-		user_email: "tbanda@team-six.com", 
+		user_email: "tafibanda@gmail.com", 
 		role_id: 2,
 		sign_in_count: 0,
 		password: "password",
@@ -167,7 +177,7 @@ end
 current_time = Time.now
 emp_size = Employee.all.size
 
-8000.times do	
+4000.times do	
 	#Up To 1 year ago
 	benchmark_time = current_time - (1 + rand(31536000)) 
 	# Max call time of 20 minutes 		

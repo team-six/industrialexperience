@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'mail_form'
+gem 'simple_form'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
@@ -61,4 +64,5 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # gem 'debugger', group: [:development, :test]
 
 # Ruby Version In Use
+#ruby "1.9.3"
 ruby "2.1.2"

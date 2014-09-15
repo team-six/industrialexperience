@@ -270,26 +270,30 @@ module ApplicationHelper
 	end
 
 	def graph_monthly_traffic_intensity
-		all_arrs = []
-		traff = []
-		month_calls = []
-		q = 0
+		if all_calls.any?
+			all_arrs = []
+			traff = []
+			month_calls = []
+			q = 0
 
-		cd = 0
+			cd = 0
 
-		for x in 1..12 do
-			month_calls = all_calls.where("extract(month from call_starttime) = ?", x)
-			all_arrs << month_calls
-			#all_arrs << ((month_calls.average(:call_duration))/60).floor
-		end
+			for x in 1..12 do
+				month_calls = all_calls.where("extract(month from call_starttime) = ?", x)
+				all_arrs << month_calls
+				#all_arrs << ((month_calls.average(:call_duration))/60).floor
+			end
 
-		all_arrs.each do |q|
-			cd = q.average(:call_duration)
-			cw = q.average(:call_wait_period)
+			all_arrs.each do |q|
+				cd = q.average(:call_duration)
+				cw = q.average(:call_wait_period)
 
-			val = (cd*cw).floor
+				val = (cd*cw).floor
 
-			traff << val
+				traff << val
+			end
+		else
+			traff = []
 		end
 
 		traff

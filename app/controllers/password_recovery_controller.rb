@@ -1,2 +1,0 @@
-class PasswordRecoveryController < ApplicationController
-end

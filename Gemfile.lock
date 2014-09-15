@@ -28,6 +28,7 @@ GEM
     arel (4.0.2)
     atomic (1.1.16)
     bcrypt-ruby (3.1.2)
+    bcrypt-ruby (3.1.2-x86-mingw32)
     builder (3.1.4)
     chart-js-rails (0.0.7)
       railties (> 3.1)
@@ -59,10 +60,14 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_form (1.5.0)
+      actionmailer (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
     pg (0.17.1)
+    pg (0.17.1-x86-mingw32)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -98,6 +103,9 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    simple_form (3.0.2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -124,6 +132,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
@@ -133,11 +142,13 @@ DEPENDENCIES
   gon (~> 5.2.0)
   jbuilder (~> 1.2)
   jquery-rails
+  mail_form
   pg
   rails (= 4.0.3)
   rails_12factor
   sass-rails (~> 4.0.0)
   sdoc
+  simple_form
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0)

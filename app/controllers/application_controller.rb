@@ -7,7 +7,14 @@ class ApplicationController < ActionController::Base
   include SessionHelper
   include ApplicationHelper
   
+	private  
+		def current_user  
+			@current_user ||= User.find_by_auth_token(  
+			cookies[:auth_token]) if cookies[:auth_token]  
+		end  
+	helper_method :current_user 
 
+  
   def set_no_cache
 	  response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
 	  response.headers["Pragma"] = "no-cache"

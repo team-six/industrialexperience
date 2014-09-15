@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+	
 	## Associations
 	has_many :employees
 	has_many :calls, through: :employees
@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 	before_save { |user| user.user_email = user_email.downcase }
 	before_save :create_remember_token
 	after_initialize :set_pass, :set_defaults
+	before_create { generate_token(:auth_token) } 
 
 	#REGEX for correct email format
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -27,8 +28,9 @@ class User < ActiveRecord::Base
 	validates :user_fname, :presence => true, length: { maximum:25 }, format: { with: VALID_NAME_REGEX, :multiline => true }
 	validates :user_lname, :presence => true, length: { maximum:25 }, format: { with: VALID_NAME_REGEX, :multiline => true }
 	validates :user_email, :presence => true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-	validates :password, :presence => true, length: { minimum: 8 }
-	validates :password_confirmation, :presence => true
+	#validates :password, :presence => true, length: { minimum: 8 }
+	#validates :password_confirmation, :presence => true
+	
 
 	## Get users full name, for display purposes
 	def full_name
@@ -63,4 +65,19 @@ class User < ActiveRecord::Base
 			self.sign_in_count = 0
 		end
 	end
+	
+	def generate_token(column)  
+		begin  
+			self[column] = SecureRandom.urlsafe_base64  
+		end while User.exists?(column => self[column])  
+	end 
+	
+	def send_password_reset  
+		generate_token(:password_reset_token)  
+		self.password_reset_sent_at = Time.zone.now   
+		save! 
+		UserMailer.password_reset(self).deliver  
+	end
+
+
 end

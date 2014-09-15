@@ -1,0 +1,38 @@
+<!-- Message to the User -->
+<% flash.each do |key, value| %>
+  <div class="flash session-flash alert alert-<%= key %>"><%= h(value) %></div>
+<% end %>
+
+<section id="password" class="row">
+<!-- Group Logo -->
+<header>
+	<%= link_to image_tag("favicon3.png"), root_path, :title => "Dimension Data WFMS" %>
+	<p>WFMS Password Reset</p>
+</header>
+
+<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>  
+  <% if @user.errors.any? %>  
+    <div class="error_messages">  
+      <h2>Form is invalid</h2>  
+      <ul>  
+        <% for message in @user.errors.full_messages %>  
+          <li><%= message %></li>  
+        <% end %>  
+      </ul>  
+    </div>  
+  <% end %> 
+  
+  <ul id="Mail Details">
+    <li>
+      <span class="adjoined"><i class="fa fa-unlock"></i></span>
+      <%= f.password_field :password, :required => true, :placeholder => "Enter New Password" %> <br />
+    </li> 
+   
+  <li>
+      <span class="adjoined"><i class="fa fa-lock"></i></span>
+      <%= f.password_field :password_confirmation, :required => true, :placeholder => "Confirm New Password" %> <br />
+    </li> 
+  </ul>
+  
+  <div class="actions"><%= f.submit "Update Password" %></div>  
+<% end %> 
