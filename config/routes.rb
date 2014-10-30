@@ -1,19 +1,21 @@
 Dd::Application.routes.draw do
 
 
-  resources :password_resets 
-  resources :skills  
+  
+  resources :password_resets
+  resources :skills
   resources :users
   resources :session, only: [:new, :create, :destroy]
   resources :dashboard
-  resources :system_users
-  resources :admin_users
+  resources :settings
   resources :employees do
     collection { post :import }
   end
   resources :calls do
     collection { post :import }
   end
+  resources "contacts", only: [:new, :create]
+  resources "requests", only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -29,10 +31,19 @@ Dd::Application.routes.draw do
     #get "system_user/index"
     get 'administration', to: "admin_users#index", as: "administration"
     get 'employee_import', to: "employees#employee_import"
-	match '/contacts',     to: 'contacts#new',             via: 'get'
-	resources "contacts", only: [:new, :create]
+    get 'employee_active', to: "employees#active"
+    get 'employee_leave', to: "employees#leave"
+    get 'employee_sick', to: "employees#sick"
+    get 'employee_maternity', to: "employees#maternity"
+    get 'employee_compassionate', to: "employees#compassionate"
+    get 'employee_retrenched', to: "employees#retrenched"
+    get 'employee_active_allocate', to: "employees#active_allocate"
+    match '/contacts', to: 'contacts#new', via: 'get'
+    match '/requests', to: 'requests#new', via: 'get'
+    get "active/new"
+    
 
-	
+
 
 
 

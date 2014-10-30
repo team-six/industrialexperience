@@ -35,6 +35,28 @@ a,p,div,table,span,ul,li,canvas,pre{
   }
 }
 
+.legend{
+  margin: 15px 0;
+
+  li{
+    display: inline;
+    margin-right: 10px;
+    line-height: 20px;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 2px;
+
+    &:first-child{
+      background: rgba(70, 191, 189,1);
+    }
+
+    &:nth-child(2){
+      background: rgba(231, 76, 60,1);
+    }
+  }
+}
+
+
 h1{ font-size: 3.5em; }
 h2{ font-size: 3em; }
 h3{ font-size: 2em; margin-bottom: 10px; }
@@ -82,7 +104,7 @@ table.general-table{
 
     th{
       text-align: left;
-      padding: 15px;
+      padding: 10px;
       border-right: 1px solid #3a3a3a;
     }
   }
@@ -239,6 +261,7 @@ input[type="text"], input[type="password"], textarea{
 
 .container{
   margin-top: 20px;
+  margin-bottom: 20px;
   background: #fff;
   padding: 20px;
   border-radius: 2px;
@@ -368,7 +391,7 @@ div.performance-legend{
 /*==========================================
   TEAM-SIX CUSTOM GRID
   ==========================================*/
-.row { width: 100%; max-width: 1140px; min-width: 320px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+.row { width: 100%; max-width: 2560px; min-width: 320px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 .row .row { min-width: 0; padding-left: 0; padding-right: 0; }
 
 /* To fix the grid into a different size, set max-width to your desired width */

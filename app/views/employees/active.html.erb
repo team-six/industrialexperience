@@ -1,0 +1,33 @@
+<section  class="twelve columns container">
+
+<header class="main-page-header">Active Employees ( <%= current_user_employees.where(:employee_status_id => 1).count %> )
+<span class="import-button"><%= link_to "Allocate Employees", employee_active_allocate_path %></span>
+</header>
+
+<table class="general-table">
+  <thead>
+    <tr>
+      <th>Employee Id</th>
+      <th>Full Name</th>
+      <th>Commenced Work</th>
+      <th>Contact Number</th>
+      <th>Email Address</th>
+      <th>Current Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td>DD_<%= employee.id %></td>
+        <td><%= link_to employee.full_name_rev.upcase, employee, :class => "employee-name" %></td>
+        <td><%= employee.employee_started %></td>
+        <td><%= employee.employee_contact_num %></td>
+        <td><%= employee.employee_email %></td>
+        <td><%= EmployeeStatus.find(employee.employee_status_id).es_type.capitalize %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</section>

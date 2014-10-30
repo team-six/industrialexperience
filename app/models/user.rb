@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_many :employees
 	has_many :calls, through: :employees
 	has_one :department
+	has_one :settings
 
 	## Password Encryption using BCrypt
 	has_secure_password
@@ -28,8 +29,8 @@ class User < ActiveRecord::Base
 	validates :user_fname, :presence => true, length: { maximum:25 }, format: { with: VALID_NAME_REGEX, :multiline => true }
 	validates :user_lname, :presence => true, length: { maximum:25 }, format: { with: VALID_NAME_REGEX, :multiline => true }
 	validates :user_email, :presence => true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-	#validates :password, :presence => true, length: { minimum: 8 }
-	#validates :password_confirmation, :presence => true
+	validates :password, :presence => true, length: { minimum: 8 }, if: Proc.new { |user| user.password.present? }
+	validates :password_confirmation, :presence => true, if: Proc.new { |user| user.password.present? }
 	
 
 	## Get users full name, for display purposes

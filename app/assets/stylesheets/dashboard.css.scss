@@ -337,6 +337,38 @@ section#main-navigation{
 			}
 
 		}
+		
+		.third-level{
+			
+			background: #1e1e1e;
+			display: none;
+			position: relative;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			width: 100%;
+			float: left;
+			font-size: 0.7em;
+
+			li{
+				margin-left: 0px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-left: 25px;
+			}
+
+			li.current{
+				background: #6abe28;
+				border-right: 5px solid #ececec;
+				a{
+					color: #fff;
+				}
+			}
+
+			a{
+				color: #bdc3c7;
+			}
+
+		}
 	}
 }
 

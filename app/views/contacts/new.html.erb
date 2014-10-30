@@ -2,44 +2,44 @@
 <section id="contact" class="row">
 <!-- Group Logo -->
 <header>
-	<%= link_to image_tag("favicon3.png"), root_path, :title => "Dimension Data WFMS" %>
-	<p>WFMS Contact Administrator</p>
+    <%= link_to image_tag("favicon3.png"), root_path, :title => "Dimension Data WFMS" %>
+    <p>WFMS Contact Administrator</p>
 </header>
 
 <!-- Mail Form for Contacting Administrator -->
  <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
-    
-	<ul id="Mail Details">
-		<li>
-			<span class="adjoined"><i class="fa fa-user"></i></span>
-			<%= f.text_field :name, :required => true, :placeholder => "Type in your Name" %>
-		</li>
-	
-		<li>
-			<span class="adjoined"><i class="fa fa-envelope"></i></span>
-			<%= f.text_field :email, :required => true ,:placeholder => "Type in your Email Address" %>
-		</li>
-		
-		<li>
-			<span class="adjoined"><i class="fa fa-comment"></i></span>
-			<%= f.text_field :message, :as => :text, :required => true, :placeholder => "Type Your Message Here" %>
-		</li>
-	</ul>
-    
-	<div>
-	
-	 <br>
+
+    <ul id="Mail Details">
+        <li>
+            <span class="adjoined"><i class="fa fa-user"></i></span>
+            <%= f.text_field :name, :required => true, :placeholder => "Type in your Name" %>
+        </li>
+
+        <li>
+            <span class="adjoined"><i class="fa fa-envelope"></i></span>
+            <%= f.text_field :email, :required => true ,:placeholder => "Type in your Email Address" %>
+        </li>
+
+        <li>
+            <span class="adjoined"><i class="fa fa-comment"></i></span>
+            <%= f.text_field :message, :as => :text, :required => true, :placeholder => "Type Your Message Here" %>
+        </li>
+    </ul>
+
+    <div>
+
+     <br>
       <%= f.submit "Send Message" %>
     </div>
-	
+
   <% end %>
-  
+
 <!-- Link to retrieve lost password -->
 <p id="forgot-password">
-	<%= link_to 'Sign In', signin_path %> | 
-	<%= link_to 'Forgotten Password', new_password_reset_path %> | 
-	Request Account
+    <%= link_to 'Sign In', signin_path %> |
+    <%= link_to 'Forgotten Password', new_password_reset_path %> |
+    <%= link_to 'Request Account', requests_path %>
 </p>
- 
+
 </div>
 

@@ -39,20 +39,30 @@ function redraw(animation){
     labels : ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
     datasets : [
       {
-        fillColor : "rgba(99,123,133,0.4)",
-        strokeColor : "rgba(220,220,220,1)",
-        pointColor : "rgba(220,220,220,1)",
-        pointStrokeColor : "#fff",
+        fillColor : "rgba( 70, 191, 189,0.5)",
+        strokeColor : "rgba( 70, 191, 189,1)",
+        pointColor : "rgba( 70, 191, 189,0.8)",
+        pointStrokeColor : "rgba( 70, 191, 189,1)",
         data : gon.graph_data
+      },
+      {
+        fillColor : "rgba(231, 76, 60,0.0)",
+        strokeColor : "rgba(231, 76, 60,0.5)",
+        pointColor : "rgba(231, 76, 60,0.8)",
+        pointStrokeColor : "rgb(231, 76, 60)",
+        data : gon.graph_mti
       }
-    ]
+     
+    ]   
   }
-  var canvas = document.getElementById("chart-bookings-per-month");
+  var canvas = document.getElementById("call-intensity-chart");
   var ctx = canvas.getContext("2d");
   new Chart(ctx).Line(data, {
     responsive: true,
     animation: false,
-    scaleFontColor: "#373737"
+    scaleFontColor: "#373737",
+    bezierCurve : true,
+    bezierCurveTension : 0
   });
 
 
@@ -60,21 +70,23 @@ function redraw(animation){
   // Second Graph
   //=======================================================
 
-  var data = {
-    labels : ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-    datasets : [
-      {
-        fillColor : "rgba(99,123,133,0.4)",
-        strokeColor : "rgba(220,220,220,1)",
-        pointColor : "rgba(220,220,220,1)",
-        pointStrokeColor : "#fff",
-        data : gon.graph_mti
-      }
-    ]
-  }
-  var canvas = document.getElementById("chart-bookings");
+  var data = [
+    {
+        value: gon.graph_success,
+        color: "#46BFBD" ,
+        highlight: "#FF5A5E",
+        label: "Succesful"
+    },
+    {
+        value: gon.graph_unsuccessful,
+        color: "#F7464A",
+        highlight: "#5AD3D1",
+        label: "Unsuccessful"
+    }
+  ]
+  var canvas = document.getElementById("call-success-chart");
   var ctx = canvas.getContext("2d");
-  new Chart(ctx).Line(data, {
+  new Chart(ctx).Pie(data, {
     responsive: true,
     animation: false,
     scaleFontColor: "#373737"

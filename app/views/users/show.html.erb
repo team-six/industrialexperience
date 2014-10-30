@@ -1,7 +1,5 @@
 <section  class="twelve columns container">
-  <% flash.each do |key, value| %>
-	<div class="flash alert alert-<%= key %>"><%= h(value) %></div>
-  <% end %>
+  
   <header class="main-page-header"><%= @user.full_name %>
   <span class="import-button"><%= link_to "Edit", edit_user_path(@user) %></span></header>
 

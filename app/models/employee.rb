@@ -2,6 +2,8 @@ class Employee < ActiveRecord::Base
 	require 'csv'
 	include SessionHelper
 
+	scope :active, -> { where("employee_status_id = ?", 1) }
+
 	#Associations
 	belongs_to :user
 	has_many :skills
@@ -11,7 +13,7 @@ class Employee < ActiveRecord::Base
 
 	#CallBacks - Things to be done before object is saved to database
 	before_save { |employee| employee.employee_email = employee_email.downcase }
-	#before_save :set_owner
+	#before_create :set_status
 
 	#REGEX for correct email format
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -21,7 +23,7 @@ class Employee < ActiveRecord::Base
 		:employee_fname => "First Name",
 		:employee_lname => "Last Name",
 		:employee_email => "Email Address",
-		:employee_contact_num => "Contact Number"
+		:employee_contact_num => "Contact Number",
 	}
 
 	#Validations
@@ -41,13 +43,19 @@ class Employee < ActiveRecord::Base
 		self.employee_lname.capitalize + ", " + self.employee_fname.capitalize
 	end
 
+	def set_status
+		self.employee_status_id = 1
+	end
+
 	def set_owner
 		self.user_id = current_user.id
 	end
 
-	def self.import(file)
+	def self.import(file, user_id)
 		CSV.foreach(file.path, headers: true) do |row|
-			Employee.create! row.to_hash
+			e = Employee.new row.to_hash.merge(user_id: user_id)
+			e.set_status
+			e.save!
 		end
 	end
 

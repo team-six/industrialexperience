@@ -14,24 +14,24 @@
   <ul class="basic-form">
     <li>
       <%= f.label "First Name" %>
-      <%= f.text_field :employee_fname, :class => "input" %>
+      <%= f.text_field :employee_fname, :required => true, :class => "input" %>
     </li>
 
     <li>
       <%= f.label "Last Name" %>
-      <%= f.text_field :employee_lname, :class => "input" %>
+      <%= f.text_field :employee_lname, :required => true, :class => "input" %>
     </li>
 
     <li><%= f.label "Employment Commencement" %>
-      <%= f.date_select :employee_started, :class => "input" %>
+      <%= f.date_select :employee_started, :required => true, :class => "input" %>
     </li>
 
     <li><%= f.label "Contact Number" %>
-      <%= f.text_field :employee_contact_num, :class => "input" %>
+      <%= f.text_field :employee_contact_num, :required => true, :required => true, :class => "input" %>
     </li>
 
     <li><%= f.label "Email Address" %>
-      <%= f.text_field :employee_email, :class => "input" %>
+      <%= f.text_field :employee_email, :required => true, :class => "input" %>
     </li>
 
      <li><%= f.label "Religion" %><br>
@@ -44,6 +44,7 @@
   </ul>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :employee_status_id, :value => 1 %>
 
   <div class="actions">
     <%= f.submit %>

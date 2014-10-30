@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140908193425) do
     t.integer  "call_status_id"
     t.integer  "call_type_id"
     t.integer  "call_duration"
+    t.integer  "call_abandoned"
   end
 
   create_table "departments", force: true do |t|
@@ -91,6 +92,17 @@ ActiveRecord::Schema.define(version: 20140908193425) do
     t.string   "role_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "settings", force: true do |t|
+    t.integer  "service_level"
+    t.integer  "expected_success"
+    t.integer  "expected_employee_success"
+    t.integer  "target_answer_time"
+    t.float    "expected_prob_wait"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "skills", force: true do |t|

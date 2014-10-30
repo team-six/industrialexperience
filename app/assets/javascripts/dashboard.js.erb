@@ -1,30 +1,30 @@
 //Menu Drop Down
-$(".top-level").click(function(){	
-	$(this).next(".second-level").slideToggle("fast");
+$(function () {
+    $(".top-level").click(function(e){
+        $(this).next(".second-level").slideToggle("fast").toggleClass("active");
+        e.stopPropagation();
+    });
+
+    $(".second-level").click(function(e){
+        $(this).next(".third-level").slideToggle("fast").toggleClass("active");
+        e.stopPropagation();
+    });
 });
-
-
 
 //Import CSV Toggle
 $(".import-button").click(function(){
-	$("div.csv-import").slideToggle();
+    $("div.csv-import").slideToggle();
 });
 
 //Hide Flash alert after 3 seconds
 setTimeout(function(){
   $(".flash").fadeOut("slow");
-},3000);
-
-
-//Find active link, open parent
-$(".current").parent().prev(".top-level").click();
-
-//$(".active-section").show();
+},5000);
 
 //Live Clock
 
 function updateClock(){
-	var currentTime = new Date ( );
+    var currentTime = new Date ( );
   var currentHours = currentTime.getHours ( );
   var currentMinutes = currentTime.getMinutes ( );
   var currentSeconds = currentTime.getSeconds ( );
@@ -44,9 +44,9 @@ function updateClock(){
 
   // Compose the string for display
   var currentTimeString = currentHours + ":" + currentMinutes ;
-   
-   
-  $("#clock").text(currentTimeString);       
+
+
+  $("#clock").text(currentTimeString);
 }
 
 

@@ -1,8 +1,6 @@
 <div class="row">
 <section  class="twelve columns container">
-  <% flash.each do |key, value| %>
-	<div class="flash alert alert-<%= key %>"><%= h(value) %></div>
-  <% end %>
+ 
   <header class="main-page-header">
     <%= @employee.full_name %>
     <span class="import-button"><%= link_to "Edit", edit_employee_path(@employee) %></span>
@@ -68,17 +66,6 @@
   </section>
 </div>
 
-
-<div class="row">
-<section class="twelve columns container" id="employee-call-data">
-    <header class="emp-performance-header">
-       Visual Aids
-    </header>
-    <div id="mycharts">
-      <canvas id="chart-bookings-per-month" width="300" height="100"></canvas>
-    </div>
-</section><!-- /Employee Call Data -->
-</div>
 
 <div class="row">
 <section class="twelve columns container" id="employee-call-data">

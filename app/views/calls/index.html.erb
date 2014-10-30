@@ -7,7 +7,6 @@
 
 		<table class="general-table">
 			<thead>
-				<th>Client</th>
 				<th>Date</th>
 				<th>Start Time</th>
 				<th>End Time</th>
@@ -17,7 +16,6 @@
 			</thead>
 		<% @calls.each do |call| %>
 			<tr>
-				<td class="td-client">Deloitte</td>
 				<td><%= call.call_starttime.strftime("%d %b,%Y") %></td>
 				<td><%= call.call_starttime.strftime("%I:%M%p") %></td>
 				<td><%= call.call_endTime.strftime("%I:%M%p") %></td>

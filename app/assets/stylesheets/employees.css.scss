@@ -1,52 +1,67 @@
 
 
 .employee-name{
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 
 #employee-call-data{
-	width: 100%;
-	float: left;
-	padding-top: 15px;
+    width: 100%;
+    float: left;
+    padding-top: 15px;
 
-	h6{
-		width: 100%;
-		padding-top: 8px;
-		padding-bottom: 8px;
-		text-transform: uppercase;
-	}
+    h6{
+        width: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+    }
 }
 
 #employee-call-count{
-	float: left;
-	background: #16a085;
-	margin-right: 20px;
-	margin-bottom: 20px;
-	color: #fff;
-	width: 200px;
-	text-align: center;
-	border-radius: 2px;
+    float: left;
+    background: #16a085;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    width: 200px;
+    text-align: center;
+    border-radius: 2px;
 
-	h6{
-		width: 100%;
-		background: #1abc9c;
-		padding-top: 8px;
-		padding-bottom: 8px;
-		text-transform: uppercase;
-	}
+    h6{
+        width: 100%;
+        background: #1abc9c;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+    }
 
-	p{
-		padding-top: 22px;
-		padding-bottom: 22px;
-		color: #fff;
-		font-size: 2em;
-	}
+    p{
+        padding-top: 22px;
+        padding-bottom: 22px;
+        color: #fff;
+        font-size: 2em;
+    }
 }
 
 header.emp-performance-header{
-	width: 100%;
-	float: left;
-	margin-bottom: 10px;
-	text-transform: uppercase;
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+input[type="submit"]{
+        width: 20%;
+        padding: 7px;
+        align: center;
+        padding-top: 6px;
+        padding-bottom: 5px;
+        background:  #6abe28;
+        border-radius: 2px;
+        border: none;
+        color: #fff;
+        margin-right: auto;
+        margin-left: auto;
+        text-transform: uppercase;
 }

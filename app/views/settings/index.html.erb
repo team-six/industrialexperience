@@ -1,0 +1,42 @@
+<section  class="twelve columns container">
+	<header class="main-page-header">Settings</header>
+
+	<%= form_for(@settings) do |f| %>
+
+	<% if @settings.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@settings.errors.count, "error") %> prohibited settingsfrom being saved:</h2>
+
+      <ul>
+      <% @settings.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+	<table class="general-table">
+		<tr>
+			<td><strong>Required Service Level (%)</strong></td>
+			<td><%= f.text_field :service_level %></td>
+		</tr>
+		<tr>
+			<td><strong>Expected Call Success Rate (%)</strong></td>
+			<td><%= f.text_field :expected_success %></td>
+		</tr>
+		<tr>
+			<td><strong>Expected Employee Call Success Rate (%)</strong></td>
+			<td><%= f.text_field :expected_employee_success %></td>
+		</tr>
+		<tr>
+			<td><strong>Target Answer Time (s)</strong></td>
+			<td><%= f.text_field :target_answer_time %></td>
+		</tr>
+	</table>
+
+	<%= f.submit %>
+
+	<% end %>
+
+</section>

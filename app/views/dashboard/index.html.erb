@@ -1,70 +1,113 @@
 <!--=====================================================
-	Main Dashboard
+  Dashboard Quick Stats
 ===================================================== -->
 <div class="row">
-	<section class="twelve columns container">	
-	<header class="main-page-header">
-		Dashboard	
-	</header>
-	<p>Welcome to your dashboard. View all data relevant to your call centre.</p>	
+  <section class="twelve columns container">  
+  <header class="main-page-header">
+    Dashboard 
+  </header>
+  <p>Welcome to your dashboard. View all data relevant to your call centre.</p> 
 
-	<!--=====================================================
-		Dashboard Quick Stats
-	===================================================== -->
-
-	<table class="statistics-table">
+  <table class="statistics-table">
     <thead>
-  	  <th>Active Employees</th>
-      <th>Avg Daily Call Load</th>
-      <th>Avg Call Duration</th>
-      <th>Success Percentage</th>
+      <th width="25%">Active Employees</th>
+      <th width="25%">Avg Daily Call Load</th>
+      <th width="25%">Service Level</th>
+      <th width="25%">Capacity</th>
     </thead>
     <tr class="values">
       <td><%= active_employees_display %></td>
       <td><%= calls_per_day %></td>
-      <td><%= avg_call_duration_refactor %></td>
-      <td><%= success_percentage %>%</td>
+      <td><%= current_service_level %>%</td>
+      <td><%= capa.round(1) %></td>
     </tr>
     <tr class="comparison">
       <td><%= link_to "View Employees", employees_path %></td>
       <td>No Messages</td>
       <td><%= link_to "View Log", calls_path %></td>
-      <td>No Messages</td>
+      <td>With RSL = <%= current_user.settings.service_level %>%</td>
     </tr>
   </table>
 
-	</section>
+  <div>
+  
+  </div>
+
+  </section>
 </div>
 
+
+<!--=====================================================
+  Dashboard Charts
+===================================================== -->
 <div class="row">
+  <div class="six columns container charting">
+    <header class="main-page-header">
+      Monthly Call Numbers &amp; Traffic Intensity ( <%= current_year %> ) 
+      <p class="chart-description">total calls in each month with corresponding intensity</p>
+    </header>
 
+    <div class="legend">
+      <ul>
+        <li>Calls</li>
+        <li>Traffic Intensity</li>
+      </ul>
+    </div>
+    <div id="chart-container">
+      <canvas id="call-intensity-chart" width="300" height="200"></canvas>
+    </div>
+  </div>
 
-
-<div class="six columns container charting">
-  <header>
-    Monthly Call Volume
-    <p class="chart-description"> >> total calls per month</p>
-  </header>
-  <div id="chart-container">
-    <canvas id="chart-bookings-per-month" width="300" height="200"></canvas>
+  <div class="six columns container charting">
+    <header class="main-page-header">
+      Call Success Chart ( <%= current_year %> )
+      <p class="chart-description">successful vs unsuccessful calls</p>
+    </header>
+    <div class="legend">
+      <ul>
+        <li>Successful</li>
+        <li>Unsuccessful</li>
+      </ul>
+    </div>
+    <div id="chart-container">
+      <canvas id="call-success-chart" width="300" height="200"></canvas>
+    </div>
   </div>
 </div>
 
-<div class="six columns container charting">
-  <header>
-    Monthly Traffic Intensity
-    <p class="chart-description"> >> average occupancy of call centre per month</p>
-  </header>
-  <div id="chart-container">
-    <canvas id="chart-bookings" width="300" height="200"></canvas>
+<!--=====================================================
+  Dashboard Reports
+===================================================== -->
+<div class="row">
+  <div class="twelve columns container">
+    <header class="main-page-header">
+      Call Centre Reports 
+    </header>
+
+    <table class="general-table">
+      <tr>
+        <td width="20%"><strong>Current Service Level</strong></td>
+        <td width="20%"><%= current_service_level %>%</td>
+        <td width="60%">
+          Expected Service level is <%= current_user.settings.service_level %>
+          
+        </td>
+      </tr>
+      <tr>
+        <td width="20%"><strong>Average Call Wait Time</strong></td>
+        <td width="20%"><%= avg_call_wait/60 %> min </td>
+        <td width="60%">
+          This is <%= ((avg_call_wait)-current_user.settings.target_answer_time) %>secs longer than the target answer time. 
+          This should be addressed.
+        </td>
+      </tr>
+     
+
+
+    </table>
+    
   </div>
 </div>
-
-
-</div>
-
-
-
 
 
 

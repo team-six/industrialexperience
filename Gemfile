@@ -32,6 +32,9 @@ gem 'chart-js-rails', '~> 0.0.7'
 #Gon for variables in js
 gem 'gon', '~> 5.2.0'
 
+
+gem 'validates_email_format_of'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

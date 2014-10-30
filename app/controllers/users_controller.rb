@@ -46,9 +46,19 @@ class UsersController < ApplicationController
     if signed_in? && current_user.role_id == 1
       @user = User.new(user_params)
       @user.role_id = 2
+      @user.department_id = 2
 
       respond_to do |format|
         if @user.save
+
+          Settings.create!([
+            service_level: 50,
+            expected_success: 50,
+            expected_employee_success: 50,
+            target_answer_time: 30,
+            user_id: @user.id
+          ])
+
           #if ping('74.125.224.72')
             UserConfirmationMailer.confirmation_mail(@user).deliver
           #else

@@ -13,6 +13,8 @@
       <th>Contact Number</th>
       <th>Email Address</th>
       <th>Current Status</th>
+      <th>Change Status</th>
+      <th>Save Status</th>
     </tr>
   </thead>
 
@@ -24,7 +26,7 @@
         <td><%= employee.employee_started %></td>
         <td><%= employee.employee_contact_num %></td>
         <td><%= employee.employee_email %></td>
-        <td><%= EmployeeStatus.find(employee.employee_status_id).es_type.capitalize %></td>      
+        <td><%= EmployeeStatus.find(employee.employee_status_id).es_type.capitalize %></td>
       </tr>
     <% end %>
   </tbody>

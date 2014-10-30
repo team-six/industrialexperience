@@ -1,0 +1,39 @@
+<section  class="twelve columns container">
+
+
+<%= form_for(:employee_status_id, method: "@employees.update") do |f| %>
+
+<header class="main-page-header">Active Employees ( <%= current_user_employees.where(:employee_status_id => 1).count %> )
+<span class="import-button"><%= link_to "Cancel Allocations", employee_active_path %></span>
+<%= f.submit %>
+<% end %>
+</header>
+
+<table class="general-table">
+  <thead>
+    <tr>
+      <th>Employee Id</th>
+      <th>Full Name</th>
+      <th>Commenced Work</th>
+      <th>Contact Number</th>
+      <th>Email Address</th>
+      <th>Current Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @employees.each do |employee| %>
+      <tr>
+        <td>DD_<%= employee.id %></td>
+        <td><%= link_to employee.full_name_rev.upcase, employee, :class => "employee-name" %></td>
+        <td><%= employee.employee_started %></td>
+        <td><%= employee.employee_contact_num %></td>
+        <td><%= employee.employee_email %></td>
+        <td><%=  select("es", "select",  options_for_select([EmployeeStatus.find(employee.employee_status_id + 1).es_type] +
+            EmployeeStatus.all.map{ |s| [s.es_type, s.id]}), :prompt => 'Select New Status')%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

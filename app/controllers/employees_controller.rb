@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  #include SessionHelper
+  include SessionHelper
   #include ApplicationHelper
 
   # GET /employees
@@ -12,12 +12,12 @@ class EmployeesController < ApplicationController
       if params[:search]
         search_query = params[:search]
         #@employees = all_employees.search(params[:search]).sort { |a,b| a.employee_lname <=> b.employee_lname }
-        @employees = all_employees.search(params[:search]).sort { |a,b| 
+        @employees = all_employees.search(params[:search]).sort { |a,b|
             [a.employee_status_id, a.employee_lname ]<=>
             [b.employee_status_id, b.employee_lname]
           }.paginate(:page => params[:page], :per_page => 15)
       else
-        @employees = all_employees.sort { |a,b| 
+        @employees = all_employees.sort { |a,b|
             [a.employee_status_id, a.employee_lname ]<=>
             [b.employee_status_id, b.employee_lname]
           }.paginate(:page => params[:page], :per_page => 15)
@@ -26,9 +26,127 @@ class EmployeesController < ApplicationController
       restricted_access
     end
 
-    
+
   end
 
+
+
+  def active
+    if signed_in? && current_user.role_id == 2
+
+      # Search Results
+      @employees=[]
+        all_employees.each do|e|
+            if (e.employee_status_id == 1)
+                @employees << e
+            end
+    end
+    else
+        flash[:error] = "You don't have any actives employee at the moment"
+        redirect_to employees_path
+      end
+  end
+
+
+
+    def active_allocate
+        if signed_in? && current_user.role_id == 2
+
+            # Search Results
+            @employees=[]
+                all_employees.each do|e|
+                    if (e.employee_status_id == 1)
+                        @employees << e
+                    end
+            end
+        else
+            flash[:error] = "You don't have any actives employee at the moment"
+            redirect_to employees_path
+        end
+    end
+
+
+
+     def leave
+    if signed_in? && current_user.role_id == 2
+
+      # Search Results
+      @employees=[]
+        all_employees.each do|e|
+            if (e.employee_status_id == 2)
+                @employees << e
+            end
+            end
+    else
+        flash[:error] = "There are no employee on leave at the moment"
+        redirect_to employees_path
+      end
+    end
+
+    def maternity
+    if signed_in? && current_user.role_id == 2
+
+      # Search Results
+      @employees=[]
+        all_employees.each do|e|
+            if (e.employee_status_id == 3)
+                @employees << e
+            end
+            end
+    else
+        flash[:error] = "There are no employee on leave at the moment"
+        redirect_to employees_path
+      end
+    end
+
+   def sick
+    if signed_in? && current_user.role_id == 2
+
+      # Search Results
+      @employees=[]
+        all_employees.each do|e|
+            if (e.employee_status_id == 4)
+                @employees << e
+            end
+            end
+    else
+        flash[:error] = "There are no employee on leave at the moment"
+        redirect_to employees_path
+      end
+    end
+
+     def compassionate
+    if signed_in? && current_user.role_id == 2
+
+      # Search Results
+      @employees=[]
+        all_employees.each do|e|
+            if (e.employee_status_id == 5)
+                @employees << e
+            end
+            end
+    else
+        flash[:error] = "There are no employee on leave at the moment"
+        redirect_to employees_path
+      end
+    end
+
+
+   def retrenched
+    if signed_in? && current_user.role_id == 2
+
+      # Search Results
+      @employees=[]
+        all_employees.each do|e|
+            if (e.employee_status_id == 6)
+                @employees << e
+            end
+            end
+    else
+        flash[:error] = "There are no employee on leave at the moment"
+        redirect_to employees_path
+      end
+    end
   # GET /employees/1
   # GET /employees/1.json
   def show
@@ -39,30 +157,28 @@ class EmployeesController < ApplicationController
       @religion = Religion.where(:id => @employee.religion_id).first.religion_name.capitalize
     else
       flash[:error] = "You don't have an employee with that ID"
-      redirect_to employees_path 
+      redirect_to employees_path
     end
   end
 
   def import
     if signed_in? && current_user.role_id == 2
+      initial_count = all_employees.count
       begin
-        Employee.import(params[:file])
-        flash[:success] = "Employees Imported Successfully"
+        Employee.import(params[:file], current_user.id)
+        num_records = all_employees.count - initial_count
+        flash[:success] = "#{num_records} employees imported successfully"
         redirect_to employees_path
-      rescue
+      rescue ActiveRecord::RecordInvalid
         flash[:error] = "Invalid CSV File"
-
         redirect_to employee_import_path
       end
+
+
     else
       restricted_access
     end
   end
-
-  # delete this if not needed
-  #def employee_import
-
-  #end
 
   def search
     @employee = Employee.search(params[:search])
@@ -85,7 +201,7 @@ class EmployeesController < ApplicationController
       @religions = Religion.all
     else
       flash[:error] = "You don't have an emplyee with that ID"
-      redirect_to employees_path 
+      redirect_to employees_path
     end
   end
 
@@ -130,6 +246,7 @@ class EmployeesController < ApplicationController
     end
   end
 
+
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
@@ -148,6 +265,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:employee_fname, :employee_lname,:employee_left, :employee_started, :employee_contact_num, :employee_email, :religion_id, :user_id)
+      params.require(:employee).permit(:employee_fname, :employee_lname,:employee_left, :employee_started, :employee_contact_num, :employee_status_id, :employee_email, :religion_id, :user_id)
     end
 end
